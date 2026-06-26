@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dhanvantari — Clinical Dashboard</title>
+<title>Dhanvantri Clinical Dashboard</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚕</text></svg>">
 
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
@@ -165,7 +165,7 @@ a:hover { color: var(--accent-2); }
 
 .divider {
   display: flex; align-items: center; gap: 14px;
-  margin: 20px 0; color: var(--text-dim); font-size: 11px;
+  margin: 18px 0; color: var(--text-dim); font-size: 11px;
   text-transform: uppercase; letter-spacing: 2px; font-weight: 500;
 }
 .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
@@ -185,7 +185,7 @@ a:hover { color: var(--accent-2); }
 }
 .btn-google:active { transform: translateY(0); }
 .btn-google:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-.btn-google .google-icon { width: 20px; height: 20px; flex-shrink: 0; }
+.btn-google svg { width: 20px; height: 20px; flex-shrink: 0; }
 
 .topnav {
   position: sticky; top: 0; z-index: 50;
@@ -670,16 +670,17 @@ a:hover { color: var(--accent-2); }
     <div class="auth-brand">
       <div class="auth-logo">⚕</div>
       <div class="auth-brand-text">
-        <div class="auth-name">Dhanvantari</div>
-        <div class="auth-tag"> Clinical Suite</div>
+        <div class="auth-name">Dhanvantri</div>
+        <div class="auth-tag">Clinical Dashboard</div>
       </div>
     </div>
     <h2 class="auth-title">Welcome back</h2>
     <p class="auth-sub">Sign in to access your clinical dashboard</p>
     <div id="loginError" class="form-error"></div>
 
+    <!-- 🔵 Google Sign-In -->
     <button class="btn-google" data-action="google-signin">
-      <svg class="google-icon" viewBox="0 0 24 24">
+      <svg viewBox="0 0 24 24">
         <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
         <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
         <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
@@ -706,7 +707,7 @@ a:hover { color: var(--accent-2); }
       <button type="submit" class="btn btn-primary btn-block">Sign In</button>
     </form>
     <p class="auth-foot">
-      New to Dhanvantari?
+      New to Dhanvantri?
       <a href="#" data-action="show-signup">Create an account</a>
     </p>
   </div>
@@ -717,8 +718,8 @@ a:hover { color: var(--accent-2); }
     <div class="auth-brand">
       <div class="auth-logo">⚕</div>
       <div class="auth-brand-text">
-        <div class="auth-name">Dhanvantari</div>
-        <div class="auth-tag">Create Your Account</div>
+        <div class="auth-name">Dhanvantri</div>
+        <div class="auth-tag">Clinical Dashboard</div>
       </div>
     </div>
     <h2 class="auth-title">Get started</h2>
@@ -726,7 +727,7 @@ a:hover { color: var(--accent-2); }
     <div id="signupError" class="form-error"></div>
 
     <button class="btn-google" data-action="google-signin">
-      <svg class="google-icon" viewBox="0 0 24 24">
+      <svg viewBox="0 0 24 24">
         <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
         <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
         <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
@@ -768,7 +769,7 @@ a:hover { color: var(--accent-2); }
     <div class="topnav-brand">
       <div class="topnav-logo">⚕</div>
       <div class="topnav-brand-text">
-        <div class="brand-name">Dhanvantari</div>
+        <div class="brand-name">Dhanvantri</div>
         <div class="brand-tag" id="userRole">RN</div>
       </div>
     </div>
@@ -1089,9 +1090,6 @@ a:hover { color: var(--accent-2); }
 </div>
 
 <script>
-/* ============================================================
-   🔥 FIREBASE — YOUR CONFIG
-   ============================================================ */
 const firebaseConfig = {
   apiKey: "AIzaSyAX2VytQFEjl2ziqyWhvxylvNkr_5tIyMg",
   authDomain: "mordern-dhanvantri.firebaseapp.com",
@@ -1108,9 +1106,6 @@ const auth = firebase.auth();
 const db = firebase.firestore();
 const googleProvider = new firebase.auth.GoogleAuthProvider();
 
-/* ============================================================
-   MODULES
-   ============================================================ */
 const State = (() => {
   const data = { user: null, patients: [], tasks: [], meds: [], vitals: {} };
   return {
@@ -1118,9 +1113,7 @@ const State = (() => {
     reset: () => { data.user = null; data.patients = []; data.tasks = []; data.meds = []; data.vitals = {}; },
     setUser: u => { data.user = u; },
     userDoc: () => data.user ? db.collection('users').doc(data.user.uid) : null,
-    setSync: v => {
-      document.getElementById('syncIndicator').classList.toggle('show', v);
-    }
+    setSync: v => { document.getElementById('syncIndicator').classList.toggle('show', v); }
   };
 })();
 
@@ -1157,7 +1150,6 @@ const Auth = (() => {
   function init() {
     document.getElementById('loginForm').addEventListener('submit', onLogin);
     document.getElementById('signupForm').addEventListener('submit', onSignup);
-
     auth.onAuthStateChanged(async fbUser => {
       if (fbUser) {
         try {
@@ -1168,8 +1160,7 @@ const Auth = (() => {
             name: profile.name || fbUser.displayName || 'User',
             email: fbUser.email,
             role: profile.role || 'RN',
-            photoURL: fbUser.photoURL || null,
-            provider: fbUser.providerData[0]?.providerId || 'firebase'
+            photoURL: fbUser.photoURL || null
           });
           Data.loadForUser();
           enterApp();
@@ -1183,7 +1174,6 @@ const Auth = (() => {
       }
     });
   }
-
   function showPage(page) {
     document.getElementById('loginPage').style.display = page === 'login' ? 'grid' : 'none';
     document.getElementById('signupPage').style.display = page === 'signup' ? 'grid' : 'none';
@@ -1191,9 +1181,7 @@ const Auth = (() => {
     document.getElementById('loginError').classList.remove('show');
     document.getElementById('signupError').classList.remove('show');
   }
-
   function showError(form, msg) { form.textContent = msg; form.classList.add('show'); }
-
   async function onLogin(e) {
     e.preventDefault();
     const fd = new FormData(e.target);
@@ -1215,7 +1203,6 @@ const Auth = (() => {
       showError(err, msg);
     }
   }
-
   async function onSignup(e) {
     e.preventDefault();
     const fd = new FormData(e.target);
@@ -1243,7 +1230,6 @@ const Auth = (() => {
       showError(err, msg);
     }
   }
-
   async function googleSignIn() {
     try {
       const result = await auth.signInWithPopup(googleProvider);
@@ -1267,13 +1253,11 @@ const Auth = (() => {
       [document.getElementById('loginError'), document.getElementById('signupError')].forEach(err => showError(err, msg));
     }
   }
-
   async function logout() {
     if (!confirm('Sign out?')) return;
     await auth.signOut();
     Toast.show('Signed out');
   }
-
   function enterApp() {
     const u = State.get().user;
     document.getElementById('userName').textContent = u.name;
@@ -1288,13 +1272,11 @@ const Auth = (() => {
     Render.all();
     showPage('app');
   }
-
   return { init, showPage, logout, enterApp, googleSignIn };
 })();
 
 const Data = (() => {
   let syncTimer = null;
-
   function loadForUser() {
     const ref = State.userDoc();
     if (!ref) return;
@@ -1302,10 +1284,7 @@ const Data = (() => {
     ref.onSnapshot(doc => {
       if (!doc.exists) {
         ref.set({ patients: [], tasks: [], meds: [], vitals: {} });
-        State.get().patients = [];
-        State.get().tasks = [];
-        State.get().meds = [];
-        State.get().vitals = {};
+        State.get().patients = []; State.get().tasks = []; State.get().meds = []; State.get().vitals = {};
       } else {
         const d = doc.data();
         State.get().patients = Array.isArray(d.patients) ? d.patients : [];
@@ -1321,7 +1300,6 @@ const Data = (() => {
       Toast.show('Could not load cloud data', 'danger');
     });
   }
-
   function save() {
     if (syncTimer) clearTimeout(syncTimer);
     State.setSync(true);
@@ -1331,10 +1309,7 @@ const Data = (() => {
         if (!ref) return;
         const d = State.get();
         await ref.set({
-          patients: d.patients,
-          tasks: d.tasks,
-          meds: d.meds,
-          vitals: d.vitals,
+          patients: d.patients, tasks: d.tasks, meds: d.meds, vitals: d.vitals,
           updatedAt: firebase.firestore.FieldValue.serverTimestamp()
         });
         State.setSync(false);
@@ -1345,7 +1320,6 @@ const Data = (() => {
       }
     }, 400);
   }
-
   return { loadForUser, save };
 })();
 
