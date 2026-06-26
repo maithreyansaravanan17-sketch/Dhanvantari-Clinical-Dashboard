@@ -11,78 +11,68 @@
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
 
 <style>
-/* ============================================================
-   DHANVANTRI 1 AESTHETIC — FULL CSS
-   ============================================================ */
 :root {
-  --bg: #f5efe4;
-  --bg-deep: #ebe1cf;
-  --bg-soft: #faf5ec;
-  --surface: #ffffff;
-  --surface-2: #faf5ec;
-  --surface-3: #f0e6d2;
+  /* === LIME SPROUT + FRESH CANOPY PALETTE === */
+  --lime: #E4FD97;            /* primary accent (sprout) */
+  --lime-deep: #C8E978;       /* hover */
+  --lime-soft: #EFFDE0;       /* tint */
+  --canopy: #2D3E2C;          /* primary dark (canopy) */
+  --canopy-light: #4A5F48;    /* mid canopy */
+  --canopy-soft: #E8EBE3;     /* subtle bg */
+  --moss: #6B8266;            /* secondary */
+  --earth: #8B7355;           /* tertiary warm */
+  --bg: #FAFBF7;              /* page bg (lime-tinted white) */
+  --bg-soft: #F4F6EC;         /* surface bg */
+  --surface: #FFFFFF;
+  --surface-2: #F8FAF1;
   --surface-glass: rgba(255, 255, 255, 0.85);
-  --text: #3a2f23;
-  --text-muted: #7a6855;
-  --text-dim: #a8967f;
-  --accent: #5d7a5a;
-  --accent-2: #7a9876;
-  --accent-dark: #3f5a3d;
-  --accent-soft: rgba(93, 122, 90, 0.10);
-  --accent-2-soft: rgba(122, 152, 118, 0.10);
-  --terracotta: #c97b5e;
-  --terracotta-soft: rgba(201, 123, 94, 0.12);
-  --success: #5d7a5a;
-  --warning: #d4a043;
-  --danger: #b85942;
-  --info: #6b8a9d;
-  --border: #e5d9c1;
-  --border-strong: #d4c4a0;
-  --divider: #ebe1cf;
-  --shadow-xs: 0 1px 2px rgba(58, 47, 35, 0.04);
-  --shadow-sm: 0 2px 6px rgba(58, 47, 35, 0.06), 0 1px 2px rgba(58, 47, 35, 0.04);
-  --shadow-md: 0 6px 16px rgba(58, 47, 35, 0.08), 0 2px 4px rgba(58, 47, 35, 0.04);
-  --shadow-lg: 0 14px 36px rgba(58, 47, 35, 0.12), 0 4px 8px rgba(58, 47, 35, 0.06);
-  --radius-sm: 8px;
-  --radius: 14px;
-  --radius-lg: 20px;
+  --text: #1F2A1E;            /* deep canopy text */
+  --text-muted: #5C6D5A;
+  --text-dim: #8A9A87;
+  --border: #DDE5D3;
+  --border-strong: #B8C8AC;
+  --divider: #E8EBE0;
+  --shadow-xs: 0 1px 2px rgba(45, 62, 44, 0.04);
+  --shadow-sm: 0 2px 8px rgba(45, 62, 44, 0.06), 0 1px 2px rgba(45, 62, 44, 0.04);
+  --shadow-md: 0 6px 20px rgba(45, 62, 44, 0.08), 0 2px 4px rgba(45, 62, 44, 0.04);
+  --shadow-lg: 0 14px 40px rgba(45, 62, 44, 0.12), 0 4px 8px rgba(45, 62, 44, 0.06);
+  --shadow-lime: 0 6px 24px rgba(228, 253, 151, 0.5);
+  --radius-sm: 10px;
+  --radius: 16px;
+  --radius-lg: 22px;
   --radius-xl: 28px;
-  --header-h: 78px;
+  --header-h: 76px;
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --font-serif: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  --font-serif: 'Cormorant Garamond', 'Lora', Georgia, serif;
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 [data-theme="dark"] {
-  --bg: #1f1c17;
-  --bg-deep: #16140f;
-  --bg-soft: #2a2620;
-  --surface: #2e2924;
-  --surface-2: #3a342d;
-  --surface-3: #463f36;
-  --surface-glass: rgba(46, 41, 36, 0.92);
-  --text: #f0e8d8;
-  --text-muted: #b8a98e;
-  --text-dim: #7a6f5d;
-  --border: #3a342d;
-  --border-strong: #4a4438;
-  --divider: #2e2924;
-  --accent: #a4c19e;
-  --accent-2: #88a684;
-  --accent-dark: #5d7a5a;
-  --accent-soft: rgba(164, 193, 158, 0.14);
-  --accent-2-soft: rgba(136, 166, 132, 0.14);
-  --terracotta: #e09980;
-  --terracotta-soft: rgba(224, 153, 128, 0.14);
-  --success: #a4c19e;
-  --warning: #e0b466;
-  --danger: #e08370;
-  --info: #8eb0c2;
-  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.15);
-  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 6px 16px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 14px 36px rgba(0, 0, 0, 0.4);
+  --bg: #1A2219;
+  --bg-soft: #232C22;
+  --surface: #2A3328;
+  --surface-2: #34402F;
+  --surface-glass: rgba(42, 51, 40, 0.92);
+  --text: #F0F5DC;
+  --text-muted: #A8B89E;
+  --text-dim: #6B7868;
+  --border: #3A4636;
+  --border-strong: #4A5846;
+  --divider: #2A3328;
+  --lime: #D4F080;
+  --lime-deep: #B8DD60;
+  --lime-soft: rgba(228, 253, 151, 0.10);
+  --canopy: #B8D8A8;
+  --canopy-light: #88A878;
+  --canopy-soft: #1F2A1E;
+  --moss: #88A878;
+  --earth: #C4A878;
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 14px 40px rgba(0, 0, 0, 0.45);
+  --shadow-lime: 0 6px 24px rgba(212, 240, 128, 0.25);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -93,61 +83,63 @@ html, body {
   min-height: 100vh; font-weight: 400;
   -webkit-font-smoothing: antialiased;
 }
+
 body::before {
   content: ''; position: fixed; inset: 0;
   background-image:
-    radial-gradient(circle at 20% 10%, rgba(201, 123, 94, 0.04) 0%, transparent 45%),
-    radial-gradient(circle at 80% 90%, rgba(93, 122, 90, 0.05) 0%, transparent 45%);
+    radial-gradient(ellipse at 0% 0%, rgba(228, 253, 151, 0.18) 0%, transparent 50%),
+    radial-gradient(ellipse at 100% 100%, rgba(45, 62, 44, 0.04) 0%, transparent 50%);
   pointer-events: none; z-index: -1;
 }
+
 h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 600; letter-spacing: -0.01em; color: var(--text); }
 button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
 input, select, textarea { font-family: inherit; }
-a { color: var(--accent-dark); text-decoration: none; transition: color 0.2s var(--ease); }
-a:hover { color: var(--accent); }
+a { color: var(--canopy); text-decoration: none; transition: color 0.2s var(--ease); font-weight: 500; }
+a:hover { color: var(--moss); }
 
+/* ============ AUTH ============ */
 .auth-wrap {
   min-height: 100vh; display: grid; place-items: center;
   padding: 24px;
   background:
-    radial-gradient(circle at 20% 20%, rgba(201, 123, 94, 0.10), transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(93, 122, 90, 0.10), transparent 50%),
+    radial-gradient(circle at 15% 15%, rgba(228, 253, 151, 0.25), transparent 50%),
+    radial-gradient(circle at 85% 85%, rgba(45, 62, 44, 0.08), transparent 50%),
     var(--bg);
 }
 .auth-card {
   width: 100%; max-width: 460px;
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--radius-xl); padding: 48px 40px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 48px 40px;
   box-shadow: var(--shadow-lg); position: relative;
 }
 .auth-card::before {
   content: ''; position: absolute;
   top: 0; left: 50%; transform: translateX(-50%);
-  width: 60px; height: 3px;
-  background: var(--terracotta);
-  border-radius: 0 0 3px 3px;
+  width: 80px; height: 4px;
+  background: var(--lime);
+  border-radius: 0 0 4px 4px;
 }
-.auth-brand { text-align: center; margin-bottom: 28px; }
+.auth-brand { text-align: center; margin-bottom: 32px; }
 .auth-logo {
-  width: 72px; height: 72px; margin: 0 auto 16px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  width: 76px; height: 76px;
+  margin: 0 auto 18px;
+  border-radius: 24px;
+  background: var(--canopy);
   display: grid; place-items: center;
-  font-size: 32px; color: white;
-  box-shadow: var(--shadow-md); border: 3px solid var(--bg-soft);
-  position: relative;
-}
-.auth-logo::after {
-  content: ''; position: absolute; inset: -6px;
-  border: 1px solid var(--terracotta);
-  border-radius: 50%; opacity: 0.4;
+  font-size: 34px; color: var(--lime);
+  box-shadow: var(--shadow-md), inset 0 1px 0 rgba(228, 253, 151, 0.2);
+  border: 2px solid var(--lime);
 }
 .auth-brand-text .auth-name {
   font-family: var(--font-serif); font-size: 32px; font-weight: 600;
-  color: var(--text); letter-spacing: 0.5px; margin-bottom: 4px;
+  color: var(--canopy); letter-spacing: 0.3px; margin-bottom: 6px;
 }
 .auth-brand-text .auth-tag {
-  font-size: 11px; color: var(--terracotta);
-  text-transform: uppercase; letter-spacing: 3px; font-weight: 500;
+  font-size: 11px; color: var(--moss);
+  text-transform: uppercase; letter-spacing: 3px; font-weight: 600;
 }
 .auth-title { font-family: var(--font-serif); font-size: 28px; font-weight: 600; text-align: center; margin-bottom: 8px; }
 .auth-sub { text-align: center; color: var(--text-muted); font-size: 14px; margin-bottom: 28px; }
@@ -159,7 +151,7 @@ a:hover { color: var(--accent); }
 }
 .form-input {
   width: 100%; height: 48px;
-  background: var(--bg-soft);
+  background: var(--surface-2);
   border: 1.5px solid var(--border);
   border-radius: var(--radius); padding: 0 16px;
   color: var(--text); font-size: 14px;
@@ -167,28 +159,29 @@ a:hover { color: var(--accent); }
 }
 .form-input::placeholder { color: var(--text-dim); }
 .form-input:focus {
-  border-color: var(--accent); background: var(--surface);
-  box-shadow: 0 0 0 4px var(--accent-soft);
+  border-color: var(--canopy);
+  background: var(--surface);
+  box-shadow: 0 0 0 4px var(--lime-soft);
 }
 .form-row { display: flex; justify-content: space-between; align-items: center; font-size: 13px; margin-bottom: 22px; }
 .form-row label { color: var(--text-muted); cursor: pointer; }
-.form-row a { color: var(--accent-dark); font-weight: 500; }
+.form-row a { color: var(--canopy); font-weight: 600; }
 .form-error {
   background: rgba(184, 89, 66, 0.08);
   border: 1px solid rgba(184, 89, 66, 0.25);
-  color: var(--danger);
+  color: #b85942;
   padding: 12px 14px; border-radius: var(--radius);
   font-size: 13px; margin-bottom: 18px; display: none;
 }
 .form-error.show { display: block; }
 .btn-block { width: 100%; height: 50px; justify-content: center; font-size: 14px; }
 .auth-foot { text-align: center; margin-top: 24px; font-size: 13px; color: var(--text-muted); }
-.auth-foot a { font-weight: 600; color: var(--accent-dark); }
+.auth-foot a { font-weight: 600; color: var(--canopy); }
 
 .divider {
   display: flex; align-items: center; gap: 14px;
   margin: 20px 0; color: var(--text-dim);
-  font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 500;
+  font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 600;
 }
 .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
@@ -201,72 +194,76 @@ a:hover { color: var(--accent); }
   transition: all 0.25s var(--ease);
 }
 .btn-google:hover {
-  background: var(--bg-soft); border-color: var(--accent);
+  background: var(--bg-soft); border-color: var(--canopy);
   box-shadow: var(--shadow-sm); transform: translateY(-1px);
 }
 .btn-google:active { transform: translateY(0); }
 .btn-google:disabled { opacity: 0.5; cursor: not-allowed; }
 .btn-google svg { width: 20px; height: 20px; flex-shrink: 0; }
 
+/* ============ TOP NAV ============ */
 .topnav {
   position: sticky; top: 0; z-index: 50;
   background: var(--surface-glass);
-  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
   height: var(--header-h);
   display: flex; align-items: center;
-  padding: 0 36px; gap: 32px;
+  padding: 0 32px; gap: 28px;
 }
 .topnav-brand { display: flex; align-items: center; gap: 14px; cursor: pointer; }
 .topnav-logo {
-  width: 44px; height: 44px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  width: 44px; height: 44px;
+  border-radius: 14px;
+  background: var(--canopy);
   display: grid; place-items: center;
-  font-size: 20px; color: white;
-  border: 2px solid var(--bg-soft); box-shadow: var(--shadow-sm);
-  position: relative;
-}
-.topnav-logo::after {
-  content: ''; position: absolute; inset: -3px;
-  border: 1px solid var(--terracotta); border-radius: 50%; opacity: 0.5;
+  font-size: 20px; color: var(--lime);
+  box-shadow: var(--shadow-sm);
+  border: 1.5px solid var(--lime);
 }
 .topnav-brand-text .brand-name {
   font-family: var(--font-serif); font-size: 22px; font-weight: 600;
-  color: var(--text); line-height: 1.1;
+  color: var(--canopy); line-height: 1.1;
 }
 .topnav-brand-text .brand-tag {
-  font-size: 10px; color: var(--terracotta);
-  text-transform: uppercase; letter-spacing: 2.5px; font-weight: 500;
+  font-size: 10px; color: var(--moss);
+  text-transform: uppercase; letter-spacing: 2.5px; font-weight: 600;
 }
 .topnav-links { display: flex; align-items: center; gap: 4px; margin-left: 16px; }
 .topnav-link {
   display: flex; align-items: center; gap: 8px;
-  padding: 9px 18px; border-radius: 24px;
+  padding: 9px 16px; border-radius: 12px;
   color: var(--text-muted); font-size: 14px; font-weight: 500;
   transition: all 0.2s var(--ease);
-  cursor: pointer; position: relative;
+  cursor: pointer;
 }
-.topnav-link:hover { background: var(--bg-soft); color: var(--text); }
-.topnav-link.active { background: var(--accent); color: white; box-shadow: var(--shadow-sm); }
+.topnav-link:hover { background: var(--lime-soft); color: var(--canopy); }
+.topnav-link.active {
+  background: var(--canopy);
+  color: var(--lime);
+  box-shadow: var(--shadow-sm);
+}
 .topnav-link .badge {
-  background: var(--terracotta); color: white;
+  background: var(--lime); color: var(--canopy);
   font-size: 10px; padding: 2px 8px;
-  border-radius: 12px; font-weight: 700;
+  border-radius: 10px; font-weight: 700;
 }
-.topnav-link.active .badge { background: rgba(255,255,255,0.25); }
+.topnav-link.active .badge { background: rgba(228,253,151,0.25); color: var(--canopy); }
 .topnav-spacer { flex: 1; }
-.topnav-search { position: relative; width: 280px; }
+.topnav-search { position: relative; width: 260px; }
 .topnav-search input {
   width: 100%; height: 42px;
-  background: var(--bg-soft);
+  background: var(--surface-2);
   border: 1.5px solid var(--border);
-  border-radius: 24px; padding: 0 16px 0 42px;
+  border-radius: 12px;
+  padding: 0 16px 0 42px;
   color: var(--text); font-size: 13px;
   outline: none; transition: all 0.25s var(--ease);
 }
 .topnav-search input:focus {
-  border-color: var(--accent); background: var(--surface);
-  box-shadow: 0 0 0 4px var(--accent-soft);
+  border-color: var(--canopy); background: var(--surface);
+  box-shadow: 0 0 0 4px var(--lime-soft);
 }
 .topnav-search-icon {
   position: absolute; left: 14px; top: 50%;
@@ -274,198 +271,302 @@ a:hover { color: var(--accent); }
 }
 .topnav-actions { display: flex; align-items: center; gap: 8px; }
 .icon-btn {
-  width: 42px; height: 42px; border-radius: 50%;
+  width: 42px; height: 42px; border-radius: 12px;
   display: grid; place-items: center;
   color: var(--text-muted); transition: all 0.2s var(--ease);
   position: relative; font-size: 16px;
 }
-.icon-btn:hover { background: var(--bg-soft); color: var(--accent); }
+.icon-btn:hover { background: var(--lime-soft); color: var(--canopy); }
 .icon-btn .dot {
   position: absolute; top: 10px; right: 10px;
   width: 8px; height: 8px;
-  background: var(--terracotta); border-radius: 50%;
-  border: 2px solid var(--surface); box-shadow: 0 0 6px var(--terracotta);
+  background: #ff6b6b;
+  border-radius: 50%;
+  border: 2px solid var(--surface);
 }
 .profile {
   display: flex; align-items: center; gap: 10px;
   padding: 5px 14px 5px 5px;
-  background: var(--bg-soft);
+  background: var(--surface-2);
   border: 1.5px solid var(--border);
-  border-radius: 24px; transition: all 0.2s var(--ease);
+  border-radius: 24px;
+  transition: all 0.2s var(--ease);
 }
-.profile:hover { border-color: var(--accent); }
+.profile:hover { border-color: var(--canopy); }
 .avatar {
   width: 32px; height: 32px; border-radius: 50%;
   display: grid; place-items: center;
-  font-weight: 600; color: white; font-size: 12px;
+  font-weight: 600; color: var(--canopy); font-size: 12px;
   overflow: hidden;
-  background: linear-gradient(135deg, var(--terracotta), var(--accent));
+  background: var(--lime);
   font-family: var(--font-serif);
 }
 .avatar img { width: 100%; height: 100%; object-fit: cover; }
 .profile-name { font-size: 13px; font-weight: 500; }
 .profile-role { font-size: 10px; color: var(--text-muted); }
 
-.content { padding: 44px 36px; max-width: 1400px; margin: 0 auto; }
+/* ============ BENTO DASHBOARD ============ */
+.content { padding: 36px 32px; max-width: 1500px; margin: 0 auto; }
+
 .page-head {
-  margin-bottom: 40px;
+  margin-bottom: 32px;
   display: flex; justify-content: space-between; align-items: flex-end;
   flex-wrap: wrap; gap: 20px;
 }
 .page-title {
-  font-family: var(--font-serif); font-size: 38px; font-weight: 600;
-  letter-spacing: -0.02em; margin-bottom: 8px; color: var(--text); line-height: 1.1;
+  font-family: var(--font-serif); font-size: 42px; font-weight: 600;
+  letter-spacing: -0.02em; margin-bottom: 8px;
+  color: var(--canopy); line-height: 1.05;
 }
-.page-title .highlight { color: var(--terracotta); font-style: italic; }
+.page-title .highlight { color: var(--moss); font-style: italic; }
 .page-sub {
   color: var(--text-muted); font-size: 15px;
   display: flex; align-items: center; gap: 14px;
 }
-.page-sub::before { content: ''; width: 36px; height: 1px; background: var(--terracotta); }
-.page-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+.page-sub::before { content: ''; width: 36px; height: 2px; background: var(--lime); border-radius: 1px; }
+.page-actions { display: flex; gap: 10px; flex-wrap: wrap; }
 
 .btn {
   display: inline-flex; align-items: center; gap: 8px;
-  padding: 12px 24px; border-radius: var(--radius);
-  font-size: 14px; font-weight: 500;
+  padding: 11px 22px; border-radius: 12px;
+  font-size: 14px; font-weight: 600;
   transition: all 0.25s var(--ease);
   border: 1.5px solid transparent;
+  letter-spacing: 0.2px;
 }
-.btn-primary { background: var(--accent); color: white; border-color: var(--accent); }
-.btn-primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); transform: translateY(-1px); box-shadow: var(--shadow-md); }
-.btn-outline { background: transparent; color: var(--accent-dark); border-color: var(--accent); }
-.btn-outline:hover { background: var(--accent-soft); }
-.btn-ghost { background: var(--surface); color: var(--text); border-color: var(--border); }
-.btn-ghost:hover { border-color: var(--accent); color: var(--accent-dark); background: var(--accent-soft); }
-.btn-terracotta { background: var(--terracotta); color: white; border-color: var(--terracotta); }
-.btn-terracotta:hover { background: #b36a4e; border-color: #b36a4e; transform: translateY(-1px); box-shadow: var(--shadow-md); }
-.btn-danger { background: transparent; color: var(--danger); border-color: rgba(184, 89, 66, 0.4); }
-.btn-danger:hover { background: rgba(184, 89, 66, 0.08); border-color: var(--danger); }
+.btn-primary {
+  background: var(--canopy);
+  color: var(--lime);
+  border-color: var(--canopy);
+  box-shadow: var(--shadow-sm);
+}
+.btn-primary:hover {
+  background: var(--canopy-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md), 0 0 0 4px var(--lime-soft);
+}
+.btn-lime {
+  background: var(--lime);
+  color: var(--canopy);
+  border-color: var(--lime);
+  box-shadow: var(--shadow-lime);
+}
+.btn-lime:hover {
+  background: var(--lime-deep);
+  transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(228, 253, 151, 0.6);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--canopy);
+  border-color: var(--canopy);
+}
+.btn-outline:hover { background: var(--canopy); color: var(--lime); }
+.btn-ghost {
+  background: var(--surface);
+  color: var(--text);
+  border-color: var(--border);
+}
+.btn-ghost:hover {
+  border-color: var(--canopy);
+  color: var(--canopy);
+  background: var(--lime-soft);
+}
+.btn-danger {
+  background: transparent;
+  color: #b85942;
+  border-color: rgba(184, 89, 66, 0.4);
+}
+.btn-danger:hover { background: rgba(184, 89, 66, 0.08); }
 
-.section-head {
-  display: flex; align-items: baseline; gap: 14px; margin-bottom: 22px;
+/* === BENTO GRID LAYOUT === */
+.bento {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(120px, auto);
+  gap: 18px;
+  margin-bottom: 32px;
 }
-.section-num {
-  font-family: var(--font-serif); font-size: 14px;
-  color: var(--terracotta); font-style: italic; font-weight: 600;
-}
-.section-title { font-family: var(--font-serif); font-size: 24px; font-weight: 600; color: var(--text); }
-.section-sub { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
-.section-rule { flex: 1; height: 1px; background: linear-gradient(90deg, var(--border), transparent); margin-left: 12px; }
-
-.metrics {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px; margin-bottom: 44px;
-}
-.metric {
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--radius-lg); padding: 26px;
-  position: relative; transition: all 0.3s var(--ease);
-  box-shadow: var(--shadow-xs); overflow: hidden;
-}
-.metric::after {
-  content: ''; position: absolute; top: 0; right: 0;
-  width: 80px; height: 80px;
-  background: radial-gradient(circle, var(--accent-soft) 0%, transparent 70%);
-  pointer-events: none;
-}
-.metric:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--border-strong); }
-.metric-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; position: relative; }
-.metric-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); font-weight: 600; }
-.metric-icon {
-  width: 42px; height: 42px; border-radius: 50%;
-  display: grid; place-items: center; font-size: 17px;
-  background: var(--accent-soft); color: var(--accent-dark);
+.bento-card {
+  background: var(--surface);
   border: 1px solid var(--border);
-}
-.metric-icon.terra { background: var(--terracotta-soft); color: var(--terracotta); }
-.metric-icon.gold { background: rgba(212, 160, 67, 0.12); color: var(--warning); }
-.metric-icon.danger { background: rgba(184, 89, 66, 0.10); color: var(--danger); }
-.metric-value {
-  font-family: var(--font-serif); font-size: 40px; font-weight: 600;
-  letter-spacing: -0.02em; color: var(--text); margin-bottom: 8px; line-height: 1;
-}
-.metric-empty { color: var(--text-dim); font-size: 13px; font-style: italic; }
-
-.alerts-card {
-  background: linear-gradient(135deg, rgba(184, 89, 66, 0.06), var(--surface) 60%);
-  border: 1px solid rgba(184, 89, 66, 0.25);
-  border-left: 3px solid var(--terracotta);
   border-radius: var(--radius-lg);
-  padding: 24px; margin-bottom: 28px; box-shadow: var(--shadow-xs);
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s var(--ease);
+  box-shadow: var(--shadow-xs);
+  display: flex;
+  flex-direction: column;
 }
-.alerts-card .card-title { color: var(--danger); font-family: var(--font-serif); font-size: 20px; }
-.alerts-list { display: flex; flex-direction: column; gap: 8px; }
+.bento-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border-strong);
+}
+
+/* Bento span helpers */
+.span-1 { grid-column: span 1; }
+.span-2 { grid-column: span 2; }
+.span-3 { grid-column: span 3; }
+.span-4 { grid-column: span 4; }
+.row-1 { grid-row: span 1; }
+.row-2 { grid-row: span 2; }
+.row-3 { grid-row: span 3; }
+
+/* Featured bento card (lime accent) */
+.bento-card.featured {
+  background: linear-gradient(135deg, var(--canopy) 0%, #1F2A1E 100%);
+  color: var(--lime);
+  border-color: var(--canopy);
+}
+.bento-card.featured .bento-label { color: var(--lime); opacity: 0.8; }
+.bento-card.featured .bento-title { color: var(--lime); }
+.bento-card.featured .bento-meta { color: rgba(228, 253, 151, 0.7); }
+
+/* Sprout accent card (lime bg) */
+.bento-card.sprout {
+  background: linear-gradient(135deg, var(--lime) 0%, var(--lime-deep) 100%);
+  color: var(--canopy);
+  border-color: var(--lime);
+  box-shadow: var(--shadow-lime);
+}
+.bento-card.sprout .bento-label { color: var(--canopy); opacity: 0.7; }
+.bento-card.sprout .bento-title { color: var(--canopy); }
+.bento-card.sprout .bento-meta { color: rgba(45, 62, 44, 0.7); }
+
+/* Soft canopy card */
+.bento-card.soft { background: var(--canopy-soft); border-color: transparent; }
+
+.bento-label {
+  font-size: 11px; text-transform: uppercase;
+  letter-spacing: 1.8px; color: var(--text-muted);
+  font-weight: 600; margin-bottom: 8px;
+}
+.bento-icon {
+  width: 36px; height: 36px; border-radius: 10px;
+  display: grid; place-items: center; font-size: 16px;
+  background: var(--lime-soft); color: var(--canopy);
+  margin-bottom: 14px;
+}
+.bento-card.featured .bento-icon,
+.bento-card.sprout .bento-icon {
+  background: rgba(255,255,255,0.15);
+  color: inherit;
+}
+.bento-title {
+  font-family: var(--font-serif);
+  font-size: 36px; font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.bento-subtitle { font-size: 13px; opacity: 0.8; margin-bottom: 14px; }
+.bento-meta { font-size: 12px; color: var(--text-muted); margin-top: auto; padding-top: 12px; }
+
+.bento-spark {
+  display: flex; align-items: flex-end; gap: 3px;
+  height: 38px; margin-top: 12px;
+}
+.bento-spark span {
+  flex: 1; background: var(--lime); border-radius: 3px;
+    opacity: 0.5;
+}
+.bento-card.featured .bento-spark span,
+.bento-card.sprout .bento-spark span { background: currentColor; }
+
+@media (max-width: 1100px) {
+  .bento { grid-template-columns: repeat(2, 1fr); }
+  .span-3, .span-4 { grid-column: span 2; }
+}
+@media (max-width: 640px) {
+  .bento { grid-template-columns: 1fr; }
+  .span-2, .span-3, .span-4 { grid-column: span 1; }
+}
+
+/* ============ ALERTS (BENTO) ============ */
+.alerts-card {
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.08), var(--surface) 70%);
+  border: 1px solid rgba(255, 107, 107, 0.25);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-xs);
+}
+.alerts-card .card-title { color: #b85942; font-family: var(--font-serif); font-size: 18px; margin-bottom: 4px; }
+.alerts-list { display: flex; flex-direction: column; gap: 8px; margin-top: 12px; }
 .alert-row {
   display: flex; align-items: center; gap: 14px;
   padding: 12px 16px; background: var(--surface);
   border: 1px solid var(--border); border-radius: var(--radius);
   transition: all 0.2s var(--ease); cursor: pointer;
 }
-.alert-row:hover { border-color: var(--terracotta); background: var(--terracotta-soft); transform: translateX(4px); }
-.alert-icon { color: var(--terracotta); font-size: 18px; width: 24px; text-align: center; }
+.alert-row:hover { border-color: #ff6b6b; transform: translateX(4px); }
+.alert-icon { color: #ff6b6b; font-size: 16px; }
 .alert-text { flex: 1; font-size: 14px; font-weight: 500; }
 .alert-meta { font-size: 12px; color: var(--text-muted); }
 
+/* ============ CARD ============ */
 .card {
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--radius-lg); padding: 28px;
-  box-shadow: var(--shadow-xs); transition: box-shadow 0.3s var(--ease);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 26px;
+  box-shadow: var(--shadow-xs);
+  margin-bottom: 24px;
 }
-.card:hover { box-shadow: var(--shadow-sm); }
-.card-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; }
+.card-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 22px; }
 .card-title { font-family: var(--font-serif); font-size: 22px; font-weight: 600; color: var(--text); }
 .card-sub { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
-
-.grid { display: grid; grid-template-columns: 2fr 1fr; gap: 24px; margin-bottom: 32px; }
-@media (max-width: 1024px) { .grid { grid-template-columns: 1fr; } }
 
 .empty-state { text-align: center; padding: 60px 20px; color: var(--text-muted); }
 .empty-icon {
   width: 76px; height: 76px; margin: 0 auto 20px;
-  background: var(--accent-soft); border-radius: 50%;
+  background: var(--lime-soft); border-radius: 24px;
   display: grid; place-items: center; font-size: 30px;
-  border: 2px dashed var(--border-strong); color: var(--accent-dark);
+  color: var(--canopy);
 }
 .empty-title { font-family: var(--font-serif); font-size: 20px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
 .empty-text { font-size: 14px; margin-bottom: 22px; }
 
+/* ============ VITALS ============ */
 .vitals { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
 .vital { background: var(--bg-soft); border: 1.5px solid var(--border); border-radius: var(--radius); padding: 16px; }
 .vital-label { font-size: 11px; text-transform: uppercase; color: var(--text-muted); letter-spacing: 1.5px; margin-bottom: 8px; font-weight: 600; }
 .vital-input {
   width: 100%; background: transparent; border: none;
-  color: var(--text); font-size: 26px; font-weight: 600;
+  color: var(--canopy); font-size: 26px; font-weight: 600;
   font-family: var(--font-serif); outline: none; padding: 0;
 }
 .vital-input::placeholder { color: var(--text-dim); }
 .vital-unit { font-size: 12px; color: var(--text-muted); margin-left: 4px; font-weight: 400; }
 
-.patient-list { display: flex; flex-direction: column; gap: 12px; }
+/* ============ PATIENTS ============ */
+.patient-list { display: flex; flex-direction: column; gap: 10px; }
 .patient {
   display: flex; align-items: center; gap: 16px;
-  padding: 16px 18px; background: var(--surface);
+  padding: 16px; background: var(--surface);
   border: 1px solid var(--border); border-radius: var(--radius);
   transition: all 0.2s var(--ease); cursor: pointer;
 }
-.patient:hover { border-color: var(--accent); transform: translateX(4px); box-shadow: var(--shadow-sm); }
+.patient:hover { border-color: var(--canopy); transform: translateX(4px); box-shadow: var(--shadow-sm); }
 .patient-avatar {
-  width: 46px; height: 46px; border-radius: 50%;
+  width: 46px; height: 46px; border-radius: 14px;
   display: grid; place-items: center;
   font-weight: 600; font-size: 16px; color: white;
   flex-shrink: 0; font-family: var(--font-serif);
-  box-shadow: var(--shadow-xs);
 }
 .patient-info { flex: 1; min-width: 0; }
 .patient-name { font-family: var(--font-serif); font-size: 17px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
 .patient-meta { font-size: 12px; color: var(--text-muted); }
 .patient-status {
   padding: 5px 14px; border-radius: 14px;
-  font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+  font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1px;
 }
-.status-stable { background: var(--accent-soft); color: var(--accent-dark); border: 1px solid rgba(93,122,90,0.25); }
-.status-critical { background: var(--terracotta-soft); color: var(--danger); border: 1px solid rgba(184,89,66,0.25); }
-.status-monitor { background: rgba(212,160,67,0.12); color: var(--warning); border: 1px solid rgba(212,160,67,0.25); }
+.status-stable { background: var(--lime-soft); color: var(--canopy); }
+.status-critical { background: rgba(255, 107, 107, 0.12); color: #b85942; }
+.status-monitor { background: rgba(255, 184, 0, 0.12); color: #c98a2b; }
 
 .tasks { display: flex; flex-direction: column; gap: 10px; }
 .task {
@@ -474,15 +575,17 @@ a:hover { color: var(--accent); }
   border: 1px solid var(--border); border-radius: var(--radius);
   transition: all 0.2s var(--ease);
 }
-.task:hover { border-color: var(--border-strong); box-shadow: var(--shadow-xs); }
+.task:hover { border-color: var(--canopy); }
 .task-check {
-  width: 22px; height: 22px; border-radius: 50%;
+  width: 22px; height: 22px; border-radius: 7px;
   border: 1.5px solid var(--border-strong);
   display: grid; place-items: center;
   flex-shrink: 0; cursor: pointer;
   transition: all 0.2s var(--ease); background: transparent;
 }
-.task.done .task-check { background: var(--accent); border-color: var(--accent); color: white; }
+.task.done .task-check {
+  background: var(--canopy); border-color: var(--canopy); color: var(--lime);
+}
 .task.done .task-text { color: var(--text-dim); text-decoration: line-through; }
 .task-text { font-size: 14px; flex: 1; background: transparent; border: none; color: var(--text); outline: none; }
 .task-time {
@@ -491,71 +594,71 @@ a:hover { color: var(--accent); }
   width: 70px; text-align: right; font-family: var(--font-serif);
 }
 .task-delete {
-  width: 28px; height: 28px; border-radius: 50%;
+  width: 28px; height: 28px; border-radius: 8px;
   background: transparent; color: var(--text-dim);
   transition: all 0.2s var(--ease); font-size: 12px;
 }
-.task-delete:hover { background: rgba(184, 89, 66, 0.12); color: var(--danger); }
+.task-delete:hover { background: rgba(184, 89, 66, 0.12); color: #b85942; }
 .task-patient-tag {
-  font-size: 11px; padding: 3px 10px; border-radius: 12px;
-  background: var(--terracotta-soft); color: var(--terracotta);
+  font-size: 11px; padding: 4px 10px; border-radius: 10px;
+  background: var(--lime-soft); color: var(--canopy);
   font-weight: 600; cursor: pointer;
-  border: 1px solid rgba(201, 123, 94, 0.3);
+  border: 1px solid rgba(45, 62, 44, 0.15);
 }
-.task-patient-tag:hover { background: var(--terracotta); color: white; }
+.task-patient-tag:hover { background: var(--canopy); color: var(--lime); }
 
-.med-list { display: flex; flex-direction: column; gap: 12px; }
+.med-list { display: flex; flex-direction: column; gap: 10px; }
 .med {
   display: flex; align-items: center; gap: 14px;
   padding: 14px 16px; background: var(--surface);
   border: 1px solid var(--border); border-radius: var(--radius);
   transition: all 0.2s var(--ease);
 }
-.med.overdue { border-color: var(--terracotta); background: rgba(201, 123, 94, 0.04); }
-.med.overdue:hover { background: rgba(201, 123, 94, 0.08); }
+.med.overdue { border-color: #ff6b6b; background: rgba(255, 107, 107, 0.04); }
+.med.overdue:hover { background: rgba(255, 107, 107, 0.08); }
 .med.given { opacity: 0.65; }
 .med.given .med-name { text-decoration: line-through; color: var(--text-muted); }
 .med-icon {
-  width: 40px; height: 40px; border-radius: 50%;
-  background: var(--accent-soft); color: var(--accent-dark);
+  width: 40px; height: 40px; border-radius: 12px;
+  background: var(--lime-soft); color: var(--canopy);
   display: grid; place-items: center; font-size: 15px;
-  border: 1px solid var(--border); flex-shrink: 0;
+  flex-shrink: 0;
 }
-.med.overdue .med-icon { background: var(--terracotta-soft); color: var(--terracotta); border-color: rgba(201, 123, 94, 0.3); }
-.med.given .med-icon { background: rgba(93, 122, 90, 0.15); color: var(--accent-dark); border-color: rgba(93, 122, 90, 0.3); }
+.med.overdue .med-icon { background: rgba(255, 107, 107, 0.15); color: #b85942; }
+.med.given .med-icon { background: var(--lime); color: var(--canopy); }
 .med-info { flex: 1; min-width: 0; }
 .med-name { font-family: var(--font-serif); font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
 .med-meta { font-size: 12px; color: var(--text-muted); }
 .med-due {
   font-family: var(--font-serif); font-size: 12px; font-weight: 500;
-  padding: 6px 12px; border-radius: 12px;
+  padding: 6px 12px; border-radius: 10px;
   background: var(--bg-soft); color: var(--text-muted);
   border: 1px solid var(--border);
 }
-.med.overdue .med-due { color: var(--danger); background: var(--terracotta-soft); border-color: rgba(201, 123, 94, 0.3); }
+.med.overdue .med-due { color: #b85942; background: rgba(255, 107, 107, 0.08); }
 .med-actions { display: flex; gap: 6px; }
 .med-action-btn {
-  width: 32px; height: 32px; border-radius: 50%;
+  width: 32px; height: 32px; border-radius: 8px;
   background: transparent; color: var(--text-muted);
   transition: all 0.2s var(--ease); font-size: 13px;
 }
-.med-action-btn:hover { background: var(--bg-soft); color: var(--accent-dark); }
-.med-action-btn.given-btn { color: var(--accent-dark); }
-.med-action-btn.undo-btn { color: var(--warning); }
-.med-action-btn.del-btn:hover { background: rgba(184,89,66,0.12); color: var(--danger); }
-.med-given-time { font-size: 11px; color: var(--accent-dark); margin-top: 4px; font-style: italic; }
+.med-action-btn:hover { background: var(--lime-soft); color: var(--canopy); }
+.med-action-btn.given-btn { color: var(--canopy); }
+.med-action-btn.undo-btn { color: #c98a2b; }
+.med-action-btn.del-btn:hover { background: rgba(184, 89, 66, 0.12); color: #b85942; }
+.med-given-time { font-size: 11px; color: var(--canopy); margin-top: 4px; font-style: italic; }
 
-.vitals-glance { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.vitals-glance { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
 .vitals-glance-card {
   background: var(--surface); border: 1px solid var(--border);
   border-radius: var(--radius); padding: 18px;
   transition: all 0.2s var(--ease); cursor: pointer;
 }
-.vitals-glance-card:hover { border-color: var(--accent); box-shadow: var(--shadow-sm); }
+.vitals-glance-card:hover { border-color: var(--canopy); box-shadow: var(--shadow-sm); }
 .vitals-glance-card.no-vitals { opacity: 0.6; cursor: default; }
 .vgc-patient { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
 .vgc-patient-avatar {
-  width: 34px; height: 34px; border-radius: 50%;
+  width: 34px; height: 34px; border-radius: 10px;
   display: grid; place-items: center;
   font-size: 12px; font-weight: 600; color: white;
   font-family: var(--font-serif);
@@ -563,13 +666,14 @@ a:hover { color: var(--accent); }
 .vgc-patient-name { font-family: var(--font-serif); font-size: 16px; font-weight: 600; color: var(--text); }
 .vgc-readings { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 12px; }
 .vgc-reading { color: var(--text-muted); }
-.vgc-reading strong { color: var(--text); font-size: 14px; font-weight: 600; font-family: var(--font-serif); }
+.vgc-reading strong { color: var(--canopy); font-size: 14px; font-weight: 600; font-family: var(--font-serif); }
 .vgc-time { font-size: 11px; color: var(--text-dim); margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border); }
 
+/* ============ MODAL ============ */
 .modal-backdrop {
   position: fixed; inset: 0;
-  background: rgba(58, 47, 35, 0.45);
-  backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+  background: rgba(31, 42, 30, 0.5);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
   display: none; place-items: center;
   z-index: 100; padding: 24px;
 }
@@ -585,8 +689,8 @@ a:hover { color: var(--accent); }
 .modal::before {
   content: ''; position: absolute;
   top: 0; left: 50%; transform: translateX(-50%);
-  width: 60px; height: 3px;
-  background: var(--terracotta); border-radius: 0 0 3px 3px;
+  width: 80px; height: 4px;
+  background: var(--lime); border-radius: 0 0 4px 4px;
 }
 .modal.modal-lg { max-width: 700px; }
 @keyframes modalIn {
@@ -594,13 +698,13 @@ a:hover { color: var(--accent); }
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
 .modal-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 26px; gap: 16px; }
-.modal-title { font-family: var(--font-serif); font-size: 26px; font-weight: 600; color: var(--text); line-height: 1.2; }
+.modal-title { font-family: var(--font-serif); font-size: 26px; font-weight: 600; color: var(--canopy); line-height: 1.2; }
 .modal-close {
-  width: 38px; height: 38px; border-radius: 50%;
+  width: 38px; height: 38px; border-radius: 12px;
   color: var(--text-muted); transition: all 0.2s var(--ease);
   display: grid; place-items: center;
 }
-.modal-close:hover { background: var(--bg-soft); color: var(--danger); }
+.modal-close:hover { background: var(--lime-soft); color: var(--canopy); }
 .modal-actions {
   display: flex; gap: 12px; justify-content: flex-end;
   margin-top: 28px; padding-top: 24px;
@@ -609,31 +713,26 @@ a:hover { color: var(--accent); }
 
 .toast {
   position: fixed; bottom: 32px; right: 32px;
-  background: var(--surface);
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius); padding: 14px 20px;
+  background: var(--canopy); color: var(--lime);
+  border-radius: 14px; padding: 14px 20px;
   box-shadow: var(--shadow-lg);
   display: flex; align-items: center; gap: 10px;
   z-index: 200; font-size: 14px; font-weight: 500;
   transform: translateY(140%);
   transition: transform 0.4s var(--ease-out);
-  border-left: 3px solid var(--accent);
   max-width: 380px;
+  border: 1px solid var(--lime);
 }
 .toast.show { transform: translateY(0); }
-.toast-icon { color: var(--accent-dark); font-size: 16px; }
-.toast.danger { border-left-color: var(--danger); }
-.toast.danger .toast-icon { color: var(--danger); }
-.toast.warning { border-left-color: var(--warning); }
-.toast.warning .toast-icon { color: var(--warning); }
+.toast-icon { font-size: 16px; }
+.toast.danger { background: #b85942; color: white; border-color: #b85942; }
+.toast.warning { background: #c98a2b; color: white; border-color: #c98a2b; }
 
-.detail-section { margin-bottom: 28px; }
-.detail-section:last-child { margin-bottom: 0; }
+.detail-section { margin-bottom: 26px; }
 .detail-section-title {
-  font-family: var(--font-serif); font-size: 16px; font-weight: 600;
+  font-family: var(--font-serif); font-size: 15px; font-weight: 600;
   color: var(--text); margin-bottom: 14px;
   padding-bottom: 10px; border-bottom: 1px solid var(--border);
-  display: flex; justify-content: space-between; align-items: center;
 }
 .detail-meta {
   display: flex; gap: 20px; flex-wrap: wrap;
@@ -650,24 +749,25 @@ a:hover { color: var(--accent); }
 }
 .history-item-time { color: var(--text-muted); font-size: 12px; font-family: var(--font-serif); }
 .history-item-values { display: flex; gap: 16px; flex-wrap: wrap; }
-.history-item-values span { color: var(--text); font-weight: 600; }
+.history-item-values span { color: var(--canopy); font-weight: 600; }
 .history-item-values small { color: var(--text-muted); font-weight: 400; margin-left: 3px; }
 
 .spinner {
   width: 16px; height: 16px;
   border: 2px solid var(--border);
-  border-top-color: var(--accent); border-radius: 50%;
+  border-top-color: var(--canopy); border-radius: 50%;
   animation: spin 0.8s linear infinite; display: inline-block;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 .syncing-indicator {
   position: fixed; bottom: 32px; left: 32px;
-  background: var(--surface); border: 1px solid var(--border);
-  border-radius: 24px; padding: 8px 16px;
+  background: var(--canopy); color: var(--lime);
+  border-radius: 14px; padding: 10px 16px;
   display: flex; align-items: center; gap: 8px;
-  font-size: 12px; color: var(--text-muted);
-  box-shadow: var(--shadow-sm); z-index: 150;
+  font-size: 12px; font-weight: 500;
+  box-shadow: var(--shadow-md); z-index: 150;
   opacity: 0; transition: opacity 0.3s var(--ease); pointer-events: none;
+  border: 1px solid var(--lime);
 }
 .syncing-indicator.show { opacity: 1; }
 
@@ -675,7 +775,7 @@ a:hover { color: var(--accent); }
   .topnav { padding: 0 16px; gap: 12px; }
   .topnav-links { display: none; }
   .topnav-search { display: none; }
-  .content { padding: 24px 16px; }
+  .content { padding: 20px 16px; }
   .page-title { font-size: 28px; }
   .vitals { grid-template-columns: 1fr; }
 }
@@ -761,6 +861,7 @@ a:hover { color: var(--accent); }
 
 <!-- ============ APP ============ -->
 <div id="appPage" style="display:none;">
+
   <nav class="topnav">
     <div class="topnav-brand" data-view="dashboard">
       <div class="topnav-logo">🌿</div>
@@ -774,7 +875,7 @@ a:hover { color: var(--accent); }
       <div class="topnav-link" data-view="patients">Patients <span class="badge" id="patientCount">0</span></div>
       <div class="topnav-link" data-view="vitals">Vitals</div>
       <div class="topnav-link" data-view="tasks">Tasks <span class="badge" id="taskCount">0</span></div>
-      <div class="topnav-link" data-view="medications">Medications <span class="badge" id="medCount">0</span></div>
+      <div class="topnav-link" data-view="medications">Meds <span class="badge" id="medCount">0</span></div>
     </div>
     <div class="topnav-spacer"></div>
     <div class="topnav-search">
@@ -804,67 +905,98 @@ a:hover { color: var(--accent); }
         </div>
         <div class="page-actions">
           <button class="btn btn-ghost" data-action="export">⬇ Export</button>
-          <button class="btn btn-terracotta" data-action="open-add-patient">+ Add Patient</button>
+          <button class="btn btn-lime" data-action="open-add-patient">+ Add Patient</button>
         </div>
       </div>
 
+      <!-- Alerts -->
       <div id="alertsCard" class="alerts-card" style="display:none;">
-        <div class="section-head">
-          <span class="section-num">i.</span>
-          <div>
-            <div class="card-title">Needs Attention</div>
-            <div class="card-sub" id="alertsSub">Critical situations requiring review</div>
-          </div>
-        </div>
+        <div class="card-title">⚠ Needs Attention</div>
+        <div class="card-sub" id="alertsSub">Critical situations requiring review</div>
         <div id="alertsList" class="alerts-list"></div>
       </div>
 
-      <div class="section-head">
-        <span class="section-num">ii.</span>
-        <div>
-          <div class="section-title">Overview</div>
-          <div class="section-sub">Your clinical metrics at a glance</div>
+      <!-- ============ BENTO GRID ============ -->
+      <div class="bento">
+        <!-- Featured hero: greeting -->
+        <div class="bento-card featured span-2 row-2">
+          <div class="bento-icon">🌿</div>
+          <div class="bento-label">Welcome</div>
+          <div class="bento-title" id="bentoGreeting">Hello, Nurse</div>
+          <div class="bento-subtitle" id="bentoSubtitle">Ready to make a difference today</div>
+          <div class="bento-spark">
+            <span style="height:40%"></span><span style="height:60%"></span><span style="height:45%"></span>
+            <span style="height:80%"></span><span style="height:65%"></span><span style="height:90%"></span>
+            <span style="height:75%"></span><span style="height:100%"></span>
+          </div>
+          <div class="bento-meta">Tap the lime button to add your first patient →</div>
         </div>
-        <div class="section-rule"></div>
-      </div>
 
-      <section class="metrics">
-        <div class="metric"><div class="metric-head"><div class="metric-label">Active Patients</div><div class="metric-icon">◎</div></div><div class="metric-value" id="mPatients">0</div><div class="metric-empty" id="mPatientsSub">Add your first patient to begin</div></div>
-        <div class="metric"><div class="metric-head"><div class="metric-label">Critical Cases</div><div class="metric-icon danger">⚑</div></div><div class="metric-value" id="mCritical">0</div><div class="metric-empty" id="mCriticalSub">No critical patients</div></div>
-        <div class="metric"><div class="metric-head"><div class="metric-label">Pending Tasks</div><div class="metric-icon terra">✓</div></div><div class="metric-value" id="mTasks">0</div><div class="metric-empty" id="mTasksSub">No tasks yet</div></div>
-        <div class="metric"><div class="metric-head"><div class="metric-label">Completed Today</div><div class="metric-icon gold">✓</div></div><div class="metric-value" id="mDone">0</div><div class="metric-empty" id="mDoneSub">Complete a task to track</div></div>
-      </section>
-
-      <div class="section-head">
-        <span class="section-num">iii.</span>
-        <div>
-          <div class="section-title">Quick Tasks</div>
-          <div class="section-sub">Today's nursing activities</div>
+        <!-- Active Patients -->
+        <div class="bento-card span-1 row-1">
+          <div class="bento-icon">◎</div>
+          <div class="bento-label">Active Patients</div>
+          <div class="bento-title" id="mPatients">0</div>
+          <div class="bento-meta" id="mPatientsSub">Add your first to begin</div>
         </div>
-        <div class="section-rule"></div>
-        <button class="btn btn-outline" style="padding:8px 18px; font-size:13px;" data-action="open-add-task">+ Add</button>
-      </div>
-      <div class="card" style="margin-bottom: 36px;"><div id="quickTasks"></div></div>
 
-      <div class="section-head">
-        <span class="section-num">iv.</span>
-        <div>
-          <div class="section-title">Recent Patients</div>
-          <div class="section-sub">Your active roster</div>
+        <!-- Critical -->
+        <div class="bento-card sprout span-1 row-1">
+          <div class="bento-icon">⚑</div>
+          <div class="bento-label">Critical Cases</div>
+          <div class="bento-title" id="mCritical">0</div>
+          <div class="bento-meta" id="mCriticalSub">None — all stable</div>
         </div>
-        <div class="section-rule"></div>
-        <button class="btn btn-outline" style="padding:8px 18px; font-size:13px;" data-action="goto-patients">View All →</button>
+
+        <!-- Tasks pending -->
+        <div class="bento-card span-1 row-1">
+          <div class="bento-icon">✓</div>
+          <div class="bento-label">Pending Tasks</div>
+          <div class="bento-title" id="mTasks">0</div>
+          <div class="bento-meta" id="mTasksSub">No tasks yet</div>
+        </div>
+
+        <!-- Completed -->
+        <div class="bento-card sprout span-1 row-1">
+          <div class="bento-icon">★</div>
+          <div class="bento-label">Completed Today</div>
+          <div class="bento-title" id="mDone">0</div>
+          <div class="bento-meta" id="mDoneSub">Get started today</div>
+        </div>
+
+        <!-- Quick Tasks (wide) -->
+        <div class="bento-card span-2 row-1">
+          <div class="card-head" style="margin-bottom:14px;">
+            <div>
+              <div class="bento-label" style="margin:0;">Quick Tasks</div>
+              <div class="card-title" style="font-size:18px;">Today's Activities</div>
+            </div>
+            <button class="btn btn-outline" style="padding:7px 14px; font-size:12px;" data-action="open-add-task">+ Add</button>
+          </div>
+          <div id="quickTasks"></div>
+        </div>
+
+        <!-- Recent Patients (wide) -->
+        <div class="bento-card span-2 row-1">
+          <div class="card-head" style="margin-bottom:14px;">
+            <div>
+              <div class="bento-label" style="margin:0;">Recent Patients</div>
+              <div class="card-title" style="font-size:18px;">Active Roster</div>
+            </div>
+            <button class="btn btn-outline" style="padding:7px 14px; font-size:12px;" data-action="goto-patients">View All →</button>
+          </div>
+          <div id="recentPatients"></div>
+        </div>
       </div>
-      <div class="card"><div id="recentPatients"></div></div>
     </div>
 
     <div id="view-patients" style="display:none;">
-      <div class="page-head"><div><h1 class="page-title">Patient Roster</h1><p class="page-sub" id="patientCountLabel">0 patients</p></div><div class="page-actions"><button class="btn btn-terracotta" data-action="open-add-patient">+ Add Patient</button></div></div>
+      <div class="page-head"><div><h1 class="page-title">Patient Roster</h1><p class="page-sub" id="patientCountLabel">0 patients</p></div><div class="page-actions"><button class="btn btn-lime" data-action="open-add-patient">+ Add Patient</button></div></div>
       <div class="card"><div id="fullPatientList"></div></div>
     </div>
 
     <div id="view-tasks" style="display:none;">
-      <div class="page-head"><div><h1 class="page-title">Tasks</h1><p class="page-sub" id="taskCountLabel">0 tasks</p></div><div class="page-actions"><button class="btn btn-terracotta" data-action="open-add-task">+ Add Task</button></div></div>
+      <div class="page-head"><div><h1 class="page-title">Tasks</h1><p class="page-sub" id="taskCountLabel">0 tasks</p></div><div class="page-actions"><button class="btn btn-lime" data-action="open-add-task">+ Add Task</button></div></div>
       <div class="card"><div id="tasksContainer"></div></div>
     </div>
 
@@ -874,7 +1006,7 @@ a:hover { color: var(--accent); }
     </div>
 
     <div id="view-medications" style="display:none;">
-      <div class="page-head"><div><h1 class="page-title">Medications</h1><p class="page-sub" id="medCountLabel">0 medications</p></div><div class="page-actions"><button class="btn btn-terracotta" data-action="open-add-med">+ Log Medication</button></div></div>
+      <div class="page-head"><div><h1 class="page-title">Medications</h1><p class="page-sub" id="medCountLabel">0 medications</p></div><div class="page-actions"><button class="btn btn-lime" data-action="open-add-med">+ Log Medication</button></div></div>
       <div class="card"><div id="fullMedList"></div></div>
     </div>
   </main>
@@ -970,8 +1102,6 @@ const auth = firebase.auth();
 const db = firebase.firestore();
 const googleProvider = new firebase.auth.GoogleAuthProvider();
 
-console.log('🔥 Firebase initialized. Project:', firebaseConfig.projectId);
-
 /* ============================================================
    STATE
    ============================================================ */
@@ -980,17 +1110,10 @@ const State = (() => {
   return {
     get: () => data,
     reset: () => { data.user = null; data.patients = []; data.tasks = []; data.meds = []; data.vitals = {}; data._initialized = false; },
-    setUser: u => { data.user = u; console.log('👤 User set:', u.email); },
-    userDoc: () => {
-      const u = data.user;
-      if (!u || !u.uid) {
-        console.error('❌ No user logged in - cannot get doc ref');
-        return null;
-      }
-      return db.collection('users').doc(u.uid);
-    },
+    setUser: u => { data.user = u; },
+    userDoc: () => data.user && data.user.uid ? db.collection('users').doc(data.user.uid) : null,
     setSync: v => { document.getElementById('syncIndicator').classList.toggle('show', v); },
-    markInit: () => { data._initialized = true; console.log('✅ State initialized'); },
+    markInit: () => { data._initialized = true; },
     isInit: () => data._initialized
   };
 })();
@@ -1005,7 +1128,7 @@ const Util = (() => {
     'linear-gradient(135deg, #5d7a5a, #3f5a3d)',
     'linear-gradient(135deg, #c97b5e, #a05f47)',
     'linear-gradient(135deg, #6b8a9d, #4a6779)',
-    'linear-gradient(135deg, #8b6f47, #6e5535)',
+    'linear-gradient(135deg, #8b7355, #6e5535)',
     'linear-gradient(135deg, #7a9876, #5d7a5a)',
     'linear-gradient(135deg, #b85942, #94392a)'
   ];
@@ -1021,10 +1144,7 @@ const Util = (() => {
     try { const d = new Date(iso); if (isNaN(d.getTime())) return ''; return d.toLocaleString(undefined, { month:'short', day:'numeric', hour:'2-digit', minute:'2-digit' }); }
     catch (e) { return ''; }
   }
-  function isOverdue(dueIso) {
-    if (!dueIso) return false;
-    try { return new Date(dueIso).getTime() < Date.now(); } catch (e) { return false; }
-  }
+  function isOverdue(dueIso) { if (!dueIso) return false; try { return new Date(dueIso).getTime() < Date.now(); } catch (e) { return false; } }
   return { escapeHTML, uid, initials, randColor, fmtDateTime, isOverdue };
 })();
 
@@ -1037,24 +1157,18 @@ const Auth = (() => {
     document.getElementById('signupForm').addEventListener('submit', onSignup);
     auth.onAuthStateChanged(handleAuthChange);
   }
-
   async function handleAuthChange(fbUser) {
-    console.log('🔐 Auth state changed:', fbUser ? fbUser.email : 'logged out');
     if (fbUser) {
       try {
         const ref = db.collection('users').doc(fbUser.uid);
         let snap = await ref.get();
         if (!snap.exists) {
-          console.log('📝 Creating new user profile...');
           await ref.set({
             name: fbUser.displayName || 'Nurse',
             email: fbUser.email,
             role: 'RN',
             photoURL: fbUser.photoURL || null,
-            patients: [],
-            tasks: [],
-            meds: [],
-            vitals: {},
+            patients: [], tasks: [], meds: [], vitals: {},
             createdAt: firebase.firestore.FieldValue.serverTimestamp()
           });
           snap = await ref.get();
@@ -1070,7 +1184,7 @@ const Auth = (() => {
         Data.loadForUser();
         enterApp();
       } catch (e) {
-        console.error('❌ Auth error:', e);
+        console.error('Auth error:', e);
         Toast.show('Failed to load profile: ' + e.message, 'danger');
       }
     } else {
@@ -1078,7 +1192,6 @@ const Auth = (() => {
       showPage('login');
     }
   }
-
   function showPage(page) {
     document.getElementById('loginPage').style.display = page === 'login' ? 'grid' : 'none';
     document.getElementById('signupPage').style.display = page === 'signup' ? 'grid' : 'none';
@@ -1086,9 +1199,7 @@ const Auth = (() => {
     document.getElementById('loginError').classList.remove('show');
     document.getElementById('signupError').classList.remove('show');
   }
-
   function showError(form, msg) { form.textContent = msg; form.classList.add('show'); }
-
   async function onLogin(e) {
     e.preventDefault();
     const fd = new FormData(e.target);
@@ -1096,23 +1207,12 @@ const Auth = (() => {
     const password = fd.get('password') || '';
     const err = document.getElementById('loginError');
     if (!email || !password) return showError(err, 'Please fill in all fields.');
-    try {
-      console.log('🔑 Logging in:', email);
-      await auth.signInWithEmailAndPassword(email, password);
-      e.target.reset();
-    } catch (e) {
-      console.error('❌ Login error:', e);
-      const msg = ({
-        'auth/user-not-found': 'No account found with that email.',
-        'auth/wrong-password': 'Incorrect password.',
-        'auth/invalid-email': 'Invalid email address.',
-        'auth/invalid-credential': 'Invalid email or password.',
-        'auth/too-many-requests': 'Too many attempts. Try again later.'
-      })[e.code] || 'Sign in failed: ' + e.message;
+    try { await auth.signInWithEmailAndPassword(email, password); e.target.reset(); }
+    catch (e) {
+      const msg = ({ 'auth/user-not-found':'No account found with that email.', 'auth/wrong-password':'Incorrect password.', 'auth/invalid-email':'Invalid email address.', 'auth/invalid-credential':'Invalid email or password.', 'auth/too-many-requests':'Too many attempts. Try again later.' })[e.code] || 'Sign in failed: ' + e.message;
       showError(err, msg);
     }
   }
-
   async function onSignup(e) {
     e.preventDefault();
     const fd = new FormData(e.target);
@@ -1123,7 +1223,6 @@ const Auth = (() => {
     const err = document.getElementById('signupError');
     if (!name || !email || !role || !password) return showError(err, 'All fields are required.');
     try {
-      console.log('📝 Creating account:', email);
       const cred = await auth.createUserWithEmailAndPassword(email, password);
       await cred.user.updateProfile({ displayName: name });
       await db.collection('users').doc(cred.user.uid).set({
@@ -1134,34 +1233,18 @@ const Auth = (() => {
       e.target.reset();
       Toast.show('Account created — welcome!');
     } catch (e) {
-      console.error('❌ Signup error:', e);
-      const msg = ({
-        'auth/email-already-in-use': 'An account with that email already exists.',
-        'auth/weak-password': 'Password is too weak (min 6 chars).',
-        'auth/invalid-email': 'Invalid email address.'
-      })[e.code] || 'Sign up failed: ' + e.message;
+      const msg = ({ 'auth/email-already-in-use':'An account with that email already exists.', 'auth/weak-password':'Password is too weak (min 6 chars).', 'auth/invalid-email':'Invalid email address.' })[e.code] || 'Sign up failed: ' + e.message;
       showError(err, msg);
     }
   }
-
   async function googleSignIn() {
-    try {
-      console.log('🔑 Google sign-in...');
-      await auth.signInWithPopup(googleProvider);
-      Toast.show('Signed in with Google');
-    } catch (e) {
-      console.error('❌ Google sign-in error:', e);
+    try { await auth.signInWithPopup(googleProvider); Toast.show('Signed in with Google'); }
+    catch (e) {
       const msg = e.code === 'auth/popup-closed-by-user' ? 'Sign-in cancelled.' : 'Google sign-in failed: ' + e.message;
       [document.getElementById('loginError'), document.getElementById('signupError')].forEach(err => showError(err, msg));
     }
   }
-
-  async function logout() {
-    if (!confirm('Sign out of Dhanvantri?')) return;
-    try { await auth.signOut(); Toast.show('Signed out'); }
-    catch (e) { Toast.show('Sign out failed', 'danger'); }
-  }
-
+  async function logout() { if (!confirm('Sign out?')) return; try { await auth.signOut(); Toast.show('Signed out'); } catch (e) { Toast.show('Sign out failed', 'danger'); } }
   function enterApp() {
     const u = State.get().user;
     if (!u) return;
@@ -1173,182 +1256,115 @@ const Auth = (() => {
     else av.textContent = Util.initials(u.name);
     document.getElementById('dashName').textContent = (u.name || 'Nurse').split(' ')[0];
     document.getElementById('dashShift').textContent = (u.role || 'RN') + ' · Your clinical overview for today';
+    document.getElementById('bentoGreeting').textContent = `Hello, ${(u.name || 'Nurse').split(' ')[0]}`;
+    document.getElementById('bentoSubtitle').textContent = `${u.role || 'RN'} · Ready to make a difference today`;
     Nav.setView('dashboard');
     showPage('app');
   }
-
   return { init, showPage, logout, enterApp, googleSignIn };
 })();
 
 /* ============================================================
-   DATA — Firestore with logging
+   DATA
    ============================================================ */
 const Data = (() => {
   let syncTimer = null;
   let _savingFromSnapshot = false;
-
   function loadForUser() {
     const ref = State.userDoc();
     if (!ref) return;
-    console.log('📥 Loading data from Firestore...');
     State.setSync(true);
     ref.onSnapshot(doc => {
-      const d = State.get();
-      console.log('📦 Snapshot received. Exists:', doc.exists, 'Data:', doc.data());
-
       if (!doc.exists) {
-        console.log('🆕 First-time user — initializing empty document');
         _savingFromSnapshot = true;
-        State.get().patients = [];
-        State.get().tasks = [];
-        State.get().meds = [];
-        State.get().vitals = {};
-        ref.set({
-          patients: [], tasks: [], meds: [], vitals: {},
-          createdAt: firebase.firestore.FieldValue.serverTimestamp()
-        }).then(() => {
-          console.log('✅ Empty doc created');
-          _savingFromSnapshot = false;
-        }).catch(e => {
-          console.error('❌ Init doc error:', e);
-          _savingFromSnapshot = false;
-          Toast.show('Failed to initialize: ' + e.message, 'danger');
-        });
+        State.get().patients = []; State.get().tasks = []; State.get().meds = []; State.get().vitals = {};
+        ref.set({ patients: [], tasks: [], meds: [], vitals: {}, createdAt: firebase.firestore.FieldValue.serverTimestamp() })
+          .then(() => { _savingFromSnapshot = false; })
+          .catch(e => { _savingFromSnapshot = false; Toast.show('Init failed: ' + e.message, 'danger'); });
       } else {
         const data = doc.data() || {};
         State.get().patients = Array.isArray(data.patients) ? data.patients : [];
         State.get().tasks    = Array.isArray(data.tasks)    ? data.tasks    : [];
         State.get().meds     = Array.isArray(data.meds)     ? data.meds     : [];
         State.get().vitals   = (data.vitals && typeof data.vitals === 'object' && !Array.isArray(data.vitals)) ? data.vitals : {};
-        console.log('✅ Data loaded — patients:', State.get().patients.length, 'tasks:', State.get().tasks.length);
       }
-
       State.markInit();
       State.setSync(false);
       Render.all();
     }, err => {
-      console.error('❌ Firestore load error:', err);
+      console.error('Firestore error:', err);
       State.setSync(false);
-      Toast.show('Could not load cloud data: ' + (err.message || err.code), 'danger');
+      Toast.show('Cloud data error: ' + (err.message || err.code), 'danger');
     });
   }
-
   function save() {
-    if (_savingFromSnapshot) { console.log('⏸️  Skipping save (from snapshot)'); return; }
-    if (!State.isInit()) { console.log('⏸️  Skipping save (not initialized yet)'); return; }
+    if (_savingFromSnapshot || !State.isInit()) return;
     const ref = State.userDoc();
-    if (!ref) { console.error('❌ No user doc ref for save'); return; }
-
+    if (!ref) return;
     if (syncTimer) clearTimeout(syncTimer);
     State.setSync(true);
     syncTimer = setTimeout(async () => {
       try {
         const d = State.get();
-        const payload = {
+        await ref.set({
           patients: JSON.parse(JSON.stringify(d.patients || [])),
           tasks: JSON.parse(JSON.stringify(d.tasks || [])),
           meds: JSON.parse(JSON.stringify(d.meds || [])),
           vitals: JSON.parse(JSON.stringify(d.vitals || {})),
           updatedAt: firebase.firestore.FieldValue.serverTimestamp()
-        };
-        console.log('💾 Saving to Firestore:', payload);
-        await ref.set(payload, { merge: true });
-        console.log('✅ Saved successfully!');
+        }, { merge: true });
         State.setSync(false);
       } catch (e) {
-        console.error('❌ Save error:', e);
+        console.error('Save error:', e);
         State.setSync(false);
-        Toast.show('Cloud sync failed: ' + (e.message || e.code), 'danger');
+        Toast.show('Sync failed: ' + (e.message || e.code), 'danger');
       }
     }, 500);
   }
-
   return { loadForUser, save };
 })();
 
-/* ============================================================
-   PATIENTS
-   ============================================================ */
 const Patients = (() => {
-  function getById(id) {
-    if (id === null || id === undefined) return null;
-    return State.get().patients.find(p => String(p.id) === String(id));
-  }
+  function getById(id) { if (id === null || id === undefined) return null; return State.get().patients.find(p => String(p.id) === String(id)); }
   function add({ name, bed, status, notes }) {
-    const patient = {
-      id: Util.uid(),
-      name: (name || '').trim(),
-      bed: String(bed || '').trim(),
-      status: status || 'stable',
-      notes: (notes || '').trim(),
-      color: Util.randColor(),
-      added: new Date().toISOString()
-    };
+    const patient = { id: Util.uid(), name: (name || '').trim(), bed: String(bed || '').trim(), status: status || 'stable', notes: (notes || '').trim(), color: Util.randColor(), added: new Date().toISOString() };
     State.get().patients.push(patient);
-    console.log('➕ Patient added locally:', patient.name);
-    Data.save();
-    Render.all();
-    Toast.show(`Patient ${patient.name} added`);
+    Data.save(); Render.all(); Toast.show(`Patient ${patient.name} added`);
     return patient;
   }
   function remove(id) {
     const targetId = String(id);
     const d = State.get();
-    const patient = d.patients.find(p => String(p.id) === targetId);
-    if (!patient) return;
+    if (!d.patients.find(p => String(p.id) === targetId)) return;
     d.patients = d.patients.filter(p => String(p.id) !== targetId);
     d.tasks.forEach(t => { if (String(t.patientId) === targetId) t.patientId = null; });
     d.meds = d.meds.filter(m => String(m.patientId) !== targetId);
-    delete d.vitals[targetId];
     Object.keys(d.vitals).forEach(k => { if (String(k) === targetId) delete d.vitals[k]; });
-    Data.save();
-    Render.all();
-    Toast.show('Patient removed');
+    Data.save(); Render.all(); Toast.show('Patient removed');
   }
   return { getById, add, remove };
 })();
 
 const Tasks = (() => {
   function add({ text, time, patientId }) {
-    const task = { id: Util.uid(), text: (text || '').trim(), time, patientId: patientId ? String(patientId) : null, done: false, createdAt: new Date().toISOString() };
-    State.get().tasks.push(task);
+    State.get().tasks.push({ id: Util.uid(), text: (text || '').trim(), time, patientId: patientId ? String(patientId) : null, done: false, createdAt: new Date().toISOString() });
     Data.save(); Render.all(); Toast.show('Task added');
   }
-  function toggle(id) {
-    const t = State.get().tasks.find(x => String(x.id) === String(id));
-    if (t) { t.done = !t.done; Data.save(); Render.all(); }
-  }
-  function update(id, field, value) {
-    const t = State.get().tasks.find(x => String(x.id) === String(id));
-    if (t) {
-      if (field === 'patientId') t[field] = value ? String(value) : null;
-      else t[field] = value;
-      Data.save();
-    }
-  }
-  function remove(id) {
-    State.get().tasks = State.get().tasks.filter(t => String(t.id) !== String(id));
-    Data.save(); Render.all();
-  }
-  function forPatient(patientId) {
-    const target = String(patientId);
-    return State.get().tasks.filter(t => String(t.patientId) === target);
-  }
+  function toggle(id) { const t = State.get().tasks.find(x => String(x.id) === String(id)); if (t) { t.done = !t.done; Data.save(); Render.all(); } }
+  function update(id, field, value) { const t = State.get().tasks.find(x => String(x.id) === String(id)); if (t) { if (field === 'patientId') t[field] = value ? String(value) : null; else t[field] = value; Data.save(); } }
+  function remove(id) { State.get().tasks = State.get().tasks.filter(t => String(t.id) !== String(id)); Data.save(); Render.all(); }
+  function forPatient(patientId) { const target = String(patientId); return State.get().tasks.filter(t => String(t.patientId) === target); }
   return { add, toggle, update, remove, forPatient };
 })();
 
 const Vitals = (() => {
-  function _get(patientId) {
-    const v = State.get().vitals[String(patientId)];
-    return Array.isArray(v) ? v : [];
-  }
-  function list(patientId) { return _get(patientId); }
-  function latest(patientId) { const a = _get(patientId); return a.length > 0 ? a[0] : null; }
-  function add(patientId, reading) {
-    const pid = String(patientId);
-    const d = State.get();
-    if (!Array.isArray(d.vitals[pid])) d.vitals[pid] = [];
-    d.vitals[pid].unshift({ ts: new Date().toISOString(), hr: reading.hr || '', spo2: reading.spo2 || '', bp: reading.bp || '', temp: reading.temp || '' });
+  function _get(pid) { const v = State.get().vitals[String(pid)]; return Array.isArray(v) ? v : []; }
+  function list(pid) { return _get(pid); }
+  function latest(pid) { const a = _get(pid); return a.length > 0 ? a[0] : null; }
+  function add(pid, reading) {
+    const id = String(pid); const d = State.get();
+    if (!Array.isArray(d.vitals[id])) d.vitals[id] = [];
+    d.vitals[id].unshift({ ts: new Date().toISOString(), hr: reading.hr || '', spo2: reading.spo2 || '', bp: reading.bp || '', temp: reading.temp || '' });
     Data.save(); Render.all(); Toast.show('Vitals recorded');
   }
   return { list, latest, add };
@@ -1356,30 +1372,16 @@ const Vitals = (() => {
 
 const Medications = (() => {
   function add({ patientId, name, dose, due }) {
-    const med = { id: Util.uid(), patientId: String(patientId), name: (name || '').trim(), dose: (dose || '').trim(), due, given: false, givenAt: null };
-    State.get().meds.push(med);
+    State.get().meds.push({ id: Util.uid(), patientId: String(patientId), name: (name || '').trim(), dose: (dose || '').trim(), due, given: false, givenAt: null });
     Data.save(); Render.all(); Toast.show('Medication logged');
   }
-  function markGiven(id) {
-    const m = State.get().meds.find(x => String(x.id) === String(id));
-    if (m) { m.given = true; m.givenAt = new Date().toISOString(); Data.save(); Render.all(); Toast.show('Marked as given'); }
-  }
-  function markUngiven(id) {
-    const m = State.get().meds.find(x => String(x.id) === String(id));
-    if (m) { m.given = false; m.givenAt = null; Data.save(); Render.all(); Toast.show('Marked as pending'); }
-  }
-  function remove(id) {
-    State.get().meds = State.get().meds.filter(m => String(m.id) !== String(id));
-    Data.save(); Render.all();
-  }
-  function forPatient(patientId) { const t = String(patientId); return State.get().meds.filter(m => String(m.patientId) === t); }
+  function markGiven(id) { const m = State.get().meds.find(x => String(x.id) === String(id)); if (m) { m.given = true; m.givenAt = new Date().toISOString(); Data.save(); Render.all(); Toast.show('Marked as given'); } }
+  function markUngiven(id) { const m = State.get().meds.find(x => String(x.id) === String(id)); if (m) { m.given = false; m.givenAt = null; Data.save(); Render.all(); Toast.show('Marked as pending'); } }
+  function remove(id) { State.get().meds = State.get().meds.filter(m => String(m.id) !== String(id)); Data.save(); Render.all(); }
+  function forPatient(pid) { const t = String(pid); return State.get().meds.filter(m => String(m.patientId) === t); }
   function sorted() {
     const arr = [...State.get().meds];
-    arr.sort((a, b) => {
-      const ag = a.given ? 1 : 0, bg = b.given ? 1 : 0;
-      if (ag !== bg) return ag - bg;
-      return new Date(a.due || 0).getTime() - new Date(b.due || 0).getTime();
-    });
+    arr.sort((a, b) => { const ag = a.given ? 1 : 0, bg = b.given ? 1 : 0; if (ag !== bg) return ag - bg; return new Date(a.due || 0).getTime() - new Date(b.due || 0).getTime(); });
     return arr;
   }
   function overdueCount() { return State.get().meds.filter(m => !m.given && Util.isOverdue(m.due)).length; }
@@ -1388,21 +1390,15 @@ const Medications = (() => {
 
 const Alerts = (() => {
   function compute() {
-    const items = [];
-    const d = State.get();
-    d.patients.filter(p => p.status === 'critical').forEach(p => {
-      items.push({ kind: 'patient', id: p.id, text: `Critical: ${p.name}`, meta: `Bed ${p.bed}` });
-    });
+    const items = []; const d = State.get();
+    d.patients.filter(p => p.status === 'critical').forEach(p => items.push({ kind: 'patient', id: p.id, text: `Critical: ${p.name}`, meta: `Bed ${p.bed}` }));
     d.meds.filter(m => !m.given && Util.isOverdue(m.due)).forEach(m => {
       const p = Patients.getById(m.patientId);
       items.push({ kind: 'med', id: m.id, text: `Overdue: ${m.name}`, meta: p ? `${p.name} · due ${Util.fmtDateTime(m.due)}` : 'Unassigned' });
     });
     return items;
   }
-  function handleClick(item) {
-    if (item.kind === 'patient') Modals.openPatientDetail(item.id);
-    else if (item.kind === 'med') Nav.setView('medications');
-  }
+  function handleClick(item) { if (item.kind === 'patient') Modals.openPatientDetail(item.id); else if (item.kind === 'med') Nav.setView('medications'); }
   return { compute, handleClick };
 })();
 
@@ -1410,20 +1406,11 @@ const Nav = (() => {
   const VIEWS = ['dashboard', 'patients', 'vitals', 'tasks', 'medications'];
   function setView(view) {
     if (!VIEWS.includes(view)) view = 'dashboard';
-    VIEWS.forEach(v => {
-      const el = document.getElementById('view-' + v);
-      if (el) el.style.display = v === view ? 'block' : 'none';
-    });
-    document.querySelectorAll('.topnav-link[data-view], .topnav-brand[data-view]').forEach(n => {
-      n.classList.toggle('active', n.dataset.view === view);
-    });
+    VIEWS.forEach(v => { const el = document.getElementById('view-' + v); if (el) el.style.display = v === view ? 'block' : 'none'; });
+    document.querySelectorAll('.topnav-link[data-view], .topnav-brand[data-view]').forEach(n => n.classList.toggle('active', n.dataset.view === view));
     Render.all();
   }
-  function init() {
-    document.querySelectorAll('.topnav-link[data-view], .topnav-brand[data-view]').forEach(n => {
-      n.addEventListener('click', () => setView(n.dataset.view));
-    });
-  }
+  function init() { document.querySelectorAll('.topnav-link[data-view], .topnav-brand[data-view]').forEach(n => n.addEventListener('click', () => setView(n.dataset.view))); }
   return { setView, init };
 })();
 
@@ -1436,34 +1423,26 @@ const Modals = (() => {
     if (name === 'addMed') populateMedPatientSelect();
     el.classList.add('show');
   }
-  function close(name) {
-    const el = document.getElementById('modal' + name.charAt(0).toUpperCase() + name.slice(1));
-    if (el) el.classList.remove('show');
-  }
+  function close(name) { const el = document.getElementById('modal' + name.charAt(0).toUpperCase() + name.slice(1)); if (el) el.classList.remove('show'); }
   function populateTaskPatientSelect() {
     const sel = document.getElementById('taskPatientSelect');
     if (!sel) return;
-    sel.innerHTML = '<option value="">— None —</option>' +
-      State.get().patients.map(p => `<option value="${p.id}">${Util.escapeHTML(p.name)} · Bed ${Util.escapeHTML(p.bed)}</option>`).join('');
+    sel.innerHTML = '<option value="">— None —</option>' + State.get().patients.map(p => `<option value="${p.id}">${Util.escapeHTML(p.name)} · Bed ${Util.escapeHTML(p.bed)}</option>`).join('');
   }
   function populateMedPatientSelect() {
     const sel = document.getElementById('medPatientSelect');
     if (!sel) return;
-    sel.innerHTML = '<option value="">— Select patient —</option>' +
-      State.get().patients.map(p => `<option value="${p.id}">${Util.escapeHTML(p.name)} · Bed ${Util.escapeHTML(p.bed)}</option>`).join('');
+    sel.innerHTML = '<option value="">— Select patient —</option>' + State.get().patients.map(p => `<option value="${p.id}">${Util.escapeHTML(p.name)} · Bed ${Util.escapeHTML(p.bed)}</option>`).join('');
   }
   function openLogVitalsForPatient(patientId) {
-    const p = Patients.getById(patientId);
-    if (!p) return;
+    const p = Patients.getById(patientId); if (!p) return;
     const form = document.getElementById('logVitalsForm');
-    form.dataset.patientId = patientId;
-    form.reset();
+    form.dataset.patientId = patientId; form.reset();
     document.getElementById('logVitalsPatientName').textContent = `${p.name} · Bed ${p.bed}`;
     open('logVitals');
   }
   function openPatientDetail(patientId) {
-    const p = Patients.getById(patientId);
-    if (!p) { Toast.show('Patient not found', 'danger'); return; }
+    const p = Patients.getById(patientId); if (!p) { Toast.show('Patient not found', 'danger'); return; }
     currentPatientDetailId = patientId;
     document.getElementById('pdName').textContent = p.name;
     document.getElementById('pdMeta').textContent = `Bed ${p.bed} · Added ${Util.fmtDateTime(p.added)}`;
@@ -1471,8 +1450,7 @@ const Modals = (() => {
     open('patientDetail');
   }
   function renderPatientDetailContent(patientId) {
-    const p = Patients.getById(patientId);
-    if (!p) return;
+    const p = Patients.getById(patientId); if (!p) return;
     const tasks = Tasks.forPatient(patientId);
     const meds = Medications.forPatient(patientId);
     const vitals = Vitals.list(patientId);
@@ -1485,40 +1463,23 @@ const Modals = (() => {
         </div>
       </div>
       <div class="detail-section">
-        <div class="detail-section-title"><span>Vitals History</span><span style="font-size:11px; color:var(--text-muted); font-weight:400;">${vitals.length} reading${vitals.length !== 1 ? 's' : ''}</span></div>
+        <div class="detail-section-title">Vitals History <span style="font-size:11px; color:var(--text-muted); font-weight:400;">${vitals.length} reading${vitals.length !== 1 ? 's' : ''}</span></div>
         ${vitals.length === 0 ? '<div class="card-sub" style="padding:12px 0;">No vitals recorded yet.</div>'
-          : '<div class="history-list">' + vitals.slice(0, 10).map(v => `
-              <div class="history-item">
-                <div class="history-item-values">
-                  ${v.hr   ? `<span>${Util.escapeHTML(v.hr)}<small>bpm</small></span>` : ''}
-                  ${v.spo2 ? `<span>${Util.escapeHTML(v.spo2)}<small>%</small></span>` : ''}
-                  ${v.bp   ? `<span>${Util.escapeHTML(v.bp)}<small>mmHg</small></span>` : ''}
-                  ${v.temp ? `<span>${Util.escapeHTML(v.temp)}<small>°C</small></span>` : ''}
-                </div>
-                <div class="history-item-time">${Util.fmtDateTime(v.ts)}</div>
-              </div>
-            `).join('') + '</div>'}
+          : '<div class="history-list">' + vitals.slice(0, 10).map(v => `<div class="history-item"><div class="history-item-values">${v.hr ? `<span>${Util.escapeHTML(v.hr)}<small>bpm</small></span>` : ''}${v.spo2 ? `<span>${Util.escapeHTML(v.spo2)}<small>%</small></span>` : ''}${v.bp ? `<span>${Util.escapeHTML(v.bp)}<small>mmHg</small></span>` : ''}${v.temp ? `<span>${Util.escapeHTML(v.temp)}<small>°C</small></span>` : ''}</div><div class="history-item-time">${Util.fmtDateTime(v.ts)}</div></div>`).join('') + '</div>'}
       </div>
       <div class="detail-section">
-        <div class="detail-section-title"><span>Medications</span><span style="font-size:11px; color:var(--text-muted); font-weight:400;">${meds.length} total</span></div>
-        ${meds.length === 0 ? '<div class="card-sub" style="padding:12px 0;">No medications logged.</div>'
-          : '<div class="med-list">' + meds.map(m => Medications.renderRow(m, p)).join('') + '</div>'}
+        <div class="detail-section-title">Medications <span style="font-size:11px; color:var(--text-muted); font-weight:400;">${meds.length} total</span></div>
+        ${meds.length === 0 ? '<div class="card-sub" style="padding:12px 0;">No medications logged.</div>' : '<div class="med-list">' + meds.map(m => Medications.renderRow(m, p)).join('') + '</div>'}
       </div>
       <div class="detail-section">
-        <div class="detail-section-title"><span>Tasks</span><span style="font-size:11px; color:var(--text-muted); font-weight:400;">${tasks.length} total</span></div>
-        ${tasks.length === 0 ? '<div class="card-sub" style="padding:12px 0;">No linked tasks.</div>'
-          : '<div class="tasks">' + tasks.map(t => Tasks.renderRow(t)).join('') + '</div>'}
-      </div>
-    `;
+        <div class="detail-section-title">Tasks <span style="font-size:11px; color:var(--text-muted); font-weight:400;">${tasks.length} total</span></div>
+        ${tasks.length === 0 ? '<div class="card-sub" style="padding:12px 0;">No linked tasks.</div>' : '<div class="tasks">' + tasks.map(t => Tasks.renderRow(t)).join('') + '</div>'}
+      </div>`;
     document.getElementById('pdContent').innerHTML = html;
   }
   function getCurrentPatientDetailId() { return currentPatientDetailId; }
   function clearCurrentPatientDetailId() { currentPatientDetailId = null; }
-  function init() {
-    document.querySelectorAll('.modal-backdrop').forEach(b => {
-      b.addEventListener('click', e => { if (e.target === b) b.classList.remove('show'); });
-    });
-  }
+  function init() { document.querySelectorAll('.modal-backdrop').forEach(b => b.addEventListener('click', e => { if (e.target === b) b.classList.remove('show'); })); }
   return { open, close, init, openLogVitalsForPatient, openPatientDetail, getCurrentPatientDetailId, clearCurrentPatientDetailId, renderPatientDetailContent };
 })();
 
@@ -1539,40 +1500,33 @@ const Toast = (() => {
 
 Medications.renderRow = function(m, patient) {
   const p = patient || Patients.getById(m.patientId);
-  const patientName = p ? p.name : 'Unknown patient';
+  const patientName = p ? p.name : 'Unknown';
   const overdue = !m.given && Util.isOverdue(m.due);
-  const cls = ['med'];
-  if (m.given) cls.push('given');
-  if (overdue) cls.push('overdue');
-  return `
-    <div class="${cls.join(' ')}" data-id="${m.id}">
-      <div class="med-icon">${m.given ? '✓' : (overdue ? '⚠' : '✚')}</div>
-      <div class="med-info">
-        <div class="med-name">${Util.escapeHTML(m.name)} · ${Util.escapeHTML(m.dose)}</div>
-        <div class="med-meta">${Util.escapeHTML(patientName)}</div>
-        ${m.given && m.givenAt ? `<div class="med-given-time">Given ${Util.fmtDateTime(m.givenAt)}</div>` : ''}
-      </div>
-      <div class="med-due">${Util.fmtDateTime(m.due)}</div>
-      <div class="med-actions">
-        ${m.given ? `<button class="med-action-btn undo-btn" data-action="med-ungiven" data-id="${m.id}" title="Mark pending">↺</button>`
-          : `<button class="med-action-btn given-btn" data-action="med-given" data-id="${m.id}" title="Mark given">✓</button>`}
-        <button class="med-action-btn del-btn" data-action="med-delete" data-id="${m.id}" title="Delete">✕</button>
-      </div>
+  const cls = ['med']; if (m.given) cls.push('given'); if (overdue) cls.push('overdue');
+  return `<div class="${cls.join(' ')}" data-id="${m.id}">
+    <div class="med-icon">${m.given ? '✓' : (overdue ? '⚠' : '✚')}</div>
+    <div class="med-info">
+      <div class="med-name">${Util.escapeHTML(m.name)} · ${Util.escapeHTML(m.dose)}</div>
+      <div class="med-meta">${Util.escapeHTML(patientName)}</div>
+      ${m.given && m.givenAt ? `<div class="med-given-time">Given ${Util.fmtDateTime(m.givenAt)}</div>` : ''}
     </div>
-  `;
+    <div class="med-due">${Util.fmtDateTime(m.due)}</div>
+    <div class="med-actions">
+      ${m.given ? `<button class="med-action-btn undo-btn" data-action="med-ungiven" data-id="${m.id}" title="Mark pending">↺</button>` : `<button class="med-action-btn given-btn" data-action="med-given" data-id="${m.id}" title="Mark given">✓</button>`}
+      <button class="med-action-btn del-btn" data-action="med-delete" data-id="${m.id}" title="Delete">✕</button>
+    </div>
+  </div>`;
 };
 
 Tasks.renderRow = function(t) {
   const patient = t.patientId ? Patients.getById(t.patientId) : null;
-  return `
-    <div class="task ${t.done ? 'done' : ''}" data-id="${t.id}">
-      <button class="task-check" data-action="task-toggle" data-id="${t.id}">${t.done ? '✓' : ''}</button>
-      <input type="text" class="task-text" value="${Util.escapeHTML(t.text)}" data-action="task-edit" data-id="${t.id}" data-field="text" ${t.done ? 'readonly' : ''}>
-      <input type="time" class="task-time" value="${Util.escapeHTML(t.time)}" data-action="task-edit" data-id="${t.id}" data-field="time">
-      ${patient ? `<span class="task-patient-tag" data-action="open-patient" data-id="${patient.id}" title="Open patient">${Util.escapeHTML(patient.name)}</span>` : ''}
-      <button class="task-delete" data-action="task-delete" data-id="${t.id}" title="Delete">✕</button>
-    </div>
-  `;
+  return `<div class="task ${t.done ? 'done' : ''}" data-id="${t.id}">
+    <button class="task-check" data-action="task-toggle" data-id="${t.id}">${t.done ? '✓' : ''}</button>
+    <input type="text" class="task-text" value="${Util.escapeHTML(t.text)}" data-action="task-edit" data-id="${t.id}" data-field="text" ${t.done ? 'readonly' : ''}>
+    <input type="time" class="task-time" value="${Util.escapeHTML(t.time)}" data-action="task-edit" data-id="${t.id}" data-field="time">
+    ${patient ? `<span class="task-patient-tag" data-action="open-patient" data-id="${patient.id}">${Util.escapeHTML(patient.name)}</span>` : ''}
+    <button class="task-delete" data-action="task-delete" data-id="${t.id}">✕</button>
+  </div>`;
 };
 
 const Render = (() => {
@@ -1605,14 +1559,14 @@ const Render = (() => {
     setText('mPatients', d.patients.length);
     const critical = d.patients.filter(p => p.status === 'critical').length;
     setText('mCritical', critical);
-    setText('mCriticalSub', critical > 0 ? `${critical} need${critical === 1 ? 's' : ''} attention` : 'No critical patients');
+    setText('mCriticalSub', critical > 0 ? `${critical} need attention` : 'None — all stable');
     const pending = d.tasks.filter(t => !t.done).length;
     setText('mTasks', pending);
     setText('mTasksSub', pending > 0 ? `${pending} remaining` : 'All caught up!');
     const done = d.tasks.filter(t => t.done).length;
     setText('mDone', done);
-    setText('mDoneSub', done > 0 ? 'Great work today' : 'Complete a task to track');
-    setText('mPatientsSub', d.patients.length > 0 ? `${d.patients.length} under your care` : 'Add your first patient to begin');
+    setText('mDoneSub', done > 0 ? 'Great work!' : 'Complete a task to track');
+    setText('mPatientsSub', d.patients.length > 0 ? `${d.patients.length} under your care` : 'Add your first patient');
   }
   function renderAlerts() {
     const items = Alerts.compute();
@@ -1621,92 +1575,61 @@ const Render = (() => {
     if (items.length === 0) { card.style.display = 'none'; return; }
     card.style.display = 'block';
     setText('alertsSub', `${items.length} item${items.length !== 1 ? 's' : ''} requiring attention`);
-    document.getElementById('alertsList').innerHTML = items.map(item => `
-      <div class="alert-row" data-action="alert-click" data-kind="${item.kind}" data-id="${item.id}">
-        <div class="alert-icon">⚠</div>
-        <div class="alert-text">${Util.escapeHTML(item.text)}</div>
-        <div class="alert-meta">${Util.escapeHTML(item.meta)}</div>
-      </div>
-    `).join('');
+    document.getElementById('alertsList').innerHTML = items.map(item => `<div class="alert-row" data-action="alert-click" data-kind="${item.kind}" data-id="${item.id}"><div class="alert-icon">⚠</div><div class="alert-text">${Util.escapeHTML(item.text)}</div><div class="alert-meta">${Util.escapeHTML(item.meta)}</div></div>`).join('');
   }
   function renderQuickTasks() {
     const d = State.get();
-    const qt = document.getElementById('quickTasks');
-    if (!qt) return;
-    if (d.tasks.length === 0) { qt.innerHTML = `<div class="empty-state" style="padding:40px 20px;"><div class="empty-text">No tasks yet. Add your first task.</div></div>`; return; }
-    qt.innerHTML = '<div class="tasks">' + d.tasks.slice(0, 5).map(t => Tasks.renderRow(t)).join('') + '</div>';
+    const qt = document.getElementById('quickTasks'); if (!qt) return;
+    if (d.tasks.length === 0) { qt.innerHTML = `<div class="empty-state" style="padding:30px 20px;"><div class="empty-text">No tasks yet. Tap + Add above.</div></div>`; return; }
+    qt.innerHTML = '<div class="tasks">' + d.tasks.slice(0, 4).map(t => Tasks.renderRow(t)).join('') + '</div>';
   }
   function renderRecentPatients() {
     const d = State.get();
-    const recent = document.getElementById('recentPatients');
-    if (!recent) return;
-    if (d.patients.length === 0) { recent.innerHTML = emptyStateHTML('◎', 'No patients yet', 'Click "+ Add Patient" to start.', { action: 'open-add-patient', label: '+ Add Patient', primary: true }); return; }
-    recent.innerHTML = '<div class="patient-list">' + d.patients.slice(0, 5).map(patientRowHTML).join('') + '</div>';
+    const recent = document.getElementById('recentPatients'); if (!recent) return;
+    if (d.patients.length === 0) { recent.innerHTML = `<div class="empty-state" style="padding:30px 20px;"><div class="empty-icon">◎</div><div class="empty-title">No patients yet</div><div class="empty-text">Click "+ Add Patient" to start your roster.</div><button class="btn btn-lime" data-action="open-add-patient">+ Add Patient</button></div>`; return; }
+    recent.innerHTML = '<div class="patient-list">' + d.patients.slice(0, 4).map(patientRowHTML).join('') + '</div>';
   }
   function renderPatientRoster() {
     const d = State.get();
-    const full = document.getElementById('fullPatientList');
-    if (!full) return;
-    if (d.patients.length === 0) { full.innerHTML = emptyStateHTML('◎', 'No patients yet', 'Click "+ Add Patient" to start.', { action: 'open-add-patient', label: '+ Add Patient', primary: true }); return; }
+    const full = document.getElementById('fullPatientList'); if (!full) return;
+    if (d.patients.length === 0) { full.innerHTML = `<div class="empty-state"><div class="empty-icon">◎</div><div class="empty-title">No patients yet</div><div class="empty-text">Click "+ Add Patient" to start your roster.</div><button class="btn btn-lime" data-action="open-add-patient">+ Add Patient</button></div>`; return; }
     full.innerHTML = '<div class="patient-list">' + d.patients.map(patientRowHTML).join('') + '</div>';
   }
   function renderTaskList() {
     const d = State.get();
-    const container = document.getElementById('tasksContainer');
-    if (!container) return;
-    if (d.tasks.length === 0) { container.innerHTML = emptyStateHTML('✓', 'No tasks yet', 'Click "+ Add Task" to create one.', { action: 'open-add-task', label: '+ Add Task', primary: true }); return; }
+    const container = document.getElementById('tasksContainer'); if (!container) return;
+    if (d.tasks.length === 0) { container.innerHTML = `<div class="empty-state"><div class="empty-icon">✓</div><div class="empty-title">No tasks yet</div><div class="empty-text">Click "+ Add Task" to create one.</div><button class="btn btn-lime" data-action="open-add-task">+ Add Task</button></div>`; return; }
     container.innerHTML = '<div class="tasks">' + d.tasks.map(t => Tasks.renderRow(t)).join('') + '</div>';
   }
   function renderVitalsView() {
     const d = State.get();
-    const wrap = document.getElementById('vitalsGlance');
-    if (!wrap) return;
+    const wrap = document.getElementById('vitalsGlance'); if (!wrap) return;
     if (d.patients.length === 0) { wrap.innerHTML = `<div class="empty-state"><div class="empty-icon">▣</div><div class="empty-title">No patients yet</div><div class="empty-text">Add patients to track vitals.</div></div>`; return; }
     wrap.innerHTML = '<div class="vitals-glance">' + d.patients.map(vitalsGlanceCardHTML).join('') + '</div>';
   }
   function renderMedsView() {
     const d = State.get();
-    const wrap = document.getElementById('fullMedList');
-    if (!wrap) return;
+    const wrap = document.getElementById('fullMedList'); if (!wrap) return;
     const meds = Medications.sorted();
-    if (meds.length === 0) { wrap.innerHTML = emptyStateHTML('✚', 'No medications logged', 'Click "+ Log Medication" to start.', { action: 'open-add-med', label: '+ Log Medication', primary: true }); return; }
+    if (meds.length === 0) { wrap.innerHTML = `<div class="empty-state"><div class="empty-icon">✚</div><div class="empty-title">No medications</div><div class="empty-text">Click "+ Log Medication" to start.</div><button class="btn btn-lime" data-action="open-add-med">+ Log Medication</button></div>`; return; }
     wrap.innerHTML = '<div class="med-list">' + meds.map(m => Medications.renderRow(m)).join('') + '</div>';
   }
   function patientRowHTML(p) {
     const initials = Util.initials(p.name);
-    return `
-      <div class="patient" data-action="open-patient" data-id="${p.id}">
-        <div class="patient-avatar" style="background:${p.color}">${initials}</div>
-        <div class="patient-info">
-          <div class="patient-name">${Util.escapeHTML(p.name)} · Bed ${Util.escapeHTML(p.bed)}</div>
-          <div class="patient-meta">${Util.escapeHTML(p.notes) || 'No notes'} · Added ${Util.fmtDateTime(p.added)}</div>
-        </div>
-        <div class="patient-status status-${Util.escapeHTML(p.status)}">${Util.escapeHTML(p.status)}</div>
+    return `<div class="patient" data-action="open-patient" data-id="${p.id}">
+      <div class="patient-avatar" style="background:${p.color}">${initials}</div>
+      <div class="patient-info">
+        <div class="patient-name">${Util.escapeHTML(p.name)} · Bed ${Util.escapeHTML(p.bed)}</div>
+        <div class="patient-meta">${Util.escapeHTML(p.notes) || 'No notes'} · ${Util.fmtDateTime(p.added)}</div>
       </div>
-    `;
+      <div class="patient-status status-${Util.escapeHTML(p.status)}">${Util.escapeHTML(p.status)}</div>
+    </div>`;
   }
   function vitalsGlanceCardHTML(p) {
     const latest = Vitals.latest(p.id);
     const initials = Util.initials(p.name);
-    if (!latest) {
-      return `<div class="vitals-glance-card no-vitals" data-action="open-log-vitals" data-id="${p.id}">
-        <div class="vgc-patient"><div class="vgc-patient-avatar" style="background:${p.color}">${initials}</div><div class="vgc-patient-name">${Util.escapeHTML(p.name)}</div></div>
-        <div class="card-sub">No vitals · tap to log</div>
-      </div>`;
-    }
-    return `<div class="vitals-glance-card" data-action="open-patient" data-id="${p.id}">
-      <div class="vgc-patient"><div class="vgc-patient-avatar" style="background:${p.color}">${initials}</div><div class="vgc-patient-name">${Util.escapeHTML(p.name)}</div></div>
-      <div class="vgc-readings">
-        ${latest.hr ? `<div class="vgc-reading">HR <strong>${Util.escapeHTML(latest.hr)}</strong> bpm</div>` : ''}
-        ${latest.spo2 ? `<div class="vgc-reading">SpO₂ <strong>${Util.escapeHTML(latest.spo2)}</strong>%</div>` : ''}
-        ${latest.bp ? `<div class="vgc-reading">BP <strong>${Util.escapeHTML(latest.bp)}</strong></div>` : ''}
-        ${latest.temp ? `<div class="vgc-reading">Temp <strong>${Util.escapeHTML(latest.temp)}</strong>°C</div>` : ''}
-      </div>
-      <div class="vgc-time">${Util.fmtDateTime(latest.ts)}</div>
-    </div>`;
-  }
-  function emptyStateHTML(icon, title, text, cta) {
-    return `<div class="empty-state"><div class="empty-icon">${icon}</div><div class="empty-title">${title}</div><div class="empty-text">${text}</div>${cta ? `<button class="btn btn-terracotta" data-action="${cta.action}">${cta.label}</button>` : ''}</div>`;
+    if (!latest) return `<div class="vitals-glance-card no-vitals" data-action="open-log-vitals" data-id="${p.id}"><div class="vgc-patient"><div class="vgc-patient-avatar" style="background:${p.color}">${initials}</div><div class="vgc-patient-name">${Util.escapeHTML(p.name)}</div></div><div class="card-sub">No vitals · tap to log</div></div>`;
+    return `<div class="vitals-glance-card" data-action="open-patient" data-id="${p.id}"><div class="vgc-patient"><div class="vgc-patient-avatar" style="background:${p.color}">${initials}</div><div class="vgc-patient-name">${Util.escapeHTML(p.name)}</div></div><div class="vgc-readings">${latest.hr ? `<div class="vgc-reading">HR <strong>${Util.escapeHTML(latest.hr)}</strong> bpm</div>` : ''}${latest.spo2 ? `<div class="vgc-reading">SpO₂ <strong>${Util.escapeHTML(latest.spo2)}</strong>%</div>` : ''}${latest.bp ? `<div class="vgc-reading">BP <strong>${Util.escapeHTML(latest.bp)}</strong></div>` : ''}${latest.temp ? `<div class="vgc-reading">Temp <strong>${Util.escapeHTML(latest.temp)}</strong>°C</div>` : ''}</div><div class="vgc-time">${Util.fmtDateTime(latest.ts)}</div></div>`;
   }
   return { all };
 })();
@@ -1745,57 +1668,46 @@ function wireEvents() {
 
   document.body.addEventListener('change', e => {
     const t = e.target;
-    if (t.dataset && t.dataset.action === 'task-edit') {
-      Tasks.update(t.dataset.id, t.dataset.field, t.value);
-    }
+    if (t.dataset && t.dataset.action === 'task-edit') Tasks.update(t.dataset.id, t.dataset.field, t.value);
   });
 
   document.getElementById('addPatientForm').addEventListener('submit', e => {
     e.preventDefault();
     const fd = new FormData(e.target);
     Patients.add({ name: fd.get('name'), bed: fd.get('bed'), status: fd.get('status'), notes: fd.get('notes') || '' });
-    e.target.reset();
-    Modals.close('addPatient');
+    e.target.reset(); Modals.close('addPatient');
   });
-
   document.getElementById('addTaskForm').addEventListener('submit', e => {
     e.preventDefault();
     const fd = new FormData(e.target);
     Tasks.add({ text: fd.get('text'), time: fd.get('time'), patientId: fd.get('patientId') || null });
-    e.target.reset();
-    Modals.close('addTask');
+    e.target.reset(); Modals.close('addTask');
   });
-
   document.getElementById('addMedForm').addEventListener('submit', e => {
     e.preventDefault();
     const fd = new FormData(e.target);
     Medications.add({ patientId: fd.get('patientId'), name: fd.get('name'), dose: fd.get('dose'), due: fd.get('due') });
-    e.target.reset();
-    Modals.close('addMed');
+    e.target.reset(); Modals.close('addMed');
   });
-
   document.getElementById('logVitalsForm').addEventListener('submit', e => {
     e.preventDefault();
     const fd = new FormData(e.target);
     const pid = e.target.dataset.patientId;
     if (!pid) return Toast.show('No patient selected', 'danger');
     Vitals.add(pid, { hr: fd.get('hr'), spo2: fd.get('spo2'), bp: fd.get('bp'), temp: fd.get('temp') });
-    e.target.reset();
-    Modals.close('logVitals');
+    e.target.reset(); Modals.close('logVitals');
   });
-
   document.getElementById('globalSearch').addEventListener('input', e => {
     const q = (e.target.value || '').toLowerCase();
-    document.querySelectorAll('.patient').forEach(p => { p.style.display = p.textContent.toLowerCase().includes(q) ? '' : 'none'; });
-    document.querySelectorAll('.task').forEach(t => { t.style.display = t.textContent.toLowerCase().includes(q) ? '' : 'none'; });
-    document.querySelectorAll('.med').forEach(m => { m.style.display = m.textContent.toLowerCase().includes(q) ? '' : 'none'; });
-    document.querySelectorAll('.vitals-glance-card').forEach(c => { c.style.display = c.textContent.toLowerCase().includes(q) ? '' : 'none'; });
+    document.querySelectorAll('.patient').forEach(p => p.style.display = p.textContent.toLowerCase().includes(q) ? '' : 'none');
+    document.querySelectorAll('.task').forEach(t => t.style.display = t.textContent.toLowerCase().includes(q) ? '' : 'none');
+    document.querySelectorAll('.med').forEach(m => m.style.display = m.textContent.toLowerCase().includes(q) ? '' : 'none');
+    document.querySelectorAll('.vitals-glance-card').forEach(c => c.style.display = c.textContent.toLowerCase().includes(q) ? '' : 'none');
   });
 }
 
 async function exportData() {
-  const d = State.get();
-  if (!d.user) return;
+  const d = State.get(); if (!d.user) return;
   const blob = new Blob([JSON.stringify({ user: d.user.email, patients: d.patients, tasks: d.tasks, meds: d.meds, vitals: d.vitals, exportedAt: new Date().toISOString() }, null, 2)], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
@@ -1807,8 +1719,7 @@ async function exportData() {
 function init() {
   const savedTheme = Storage.loadTheme();
   if (savedTheme) document.documentElement.dataset.theme = savedTheme;
-  Auth.init(); Nav.init(); Modals.init();
-  wireEvents();
+  Auth.init(); Nav.init(); Modals.init(); wireEvents();
 }
 
 document.addEventListener('DOMContentLoaded', init);
