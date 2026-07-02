@@ -339,6 +339,46 @@
   </div>
 </div>
 
+<!-- AI Settings Modal -->
+<div class="modal-backdrop" id="modalAiSettings" data-modal="aiSettings">
+  <div class="modal">
+    <div class="modal-head">
+      <div><div class="modal-title">🌿 Sage AI Settings</div><div class="card-sub">Power the assistant with OpenRouter</div></div>
+      <button class="modal-close" data-action="close-modal" data-modal="aiSettings">✕</button>
+    </div>
+    <div id="aiSettingsError" class="form-error"></div>
+    <form id="aiSettingsForm">
+      <div class="form-group">
+        <label class="form-label">OpenRouter API Key</label>
+        <input type="password" name="key" id="aiKeyInput" class="form-input" placeholder="sk-or-v1-..." autocomplete="off">
+        <div class="card-sub" style="margin-top:8px; font-size:12px;">Stored locally in your browser only. Get one at <a href="https://openrouter.ai/keys" target="_blank" rel="noopener">openrouter.ai/keys</a>.</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Model</label>
+        <select name="model" id="aiModelSelect" class="form-input">
+          <option value="meta-llama/llama-3.3-70b-instruct:free">Llama 3.3 70B (free, recommended)</option>
+          <option value="google/gemini-2.0-flash-exp:free">Gemini 2.0 Flash (free, fast)</option>
+          <option value="qwen/qwen-2.5-72b-instruct:free">Qwen 2.5 72B (free)</option>
+          <option value="mistralai/mistral-small-3.2-24b-instruct:free">Mistral Small 3.2 (free)</option>
+          <option value="openai/gpt-4o-mini">GPT-4o Mini (paid, cheap)</option>
+          <option value="anthropic/claude-3.5-sonnet">Claude 3.5 Sonnet (paid, best quality)</option>
+        </select>
+      </div>
+      <div style="display:flex; gap:10px; margin-top:8px;">
+        <button type="button" class="btn btn-ghost btn-sm" data-action="test-ai-key">🧪 Test Key</button>
+        <button type="button" class="btn btn-danger btn-sm" data-action="clear-ai-key">Remove Key</button>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-ghost" data-action="close-modal" data-modal="aiSettings">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save & Activate</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="toast" id="toast"><span class="toast-icon">✓</span><span id="toastMsg">Action completed</span></div>
+<div class="syncing-indicator" id="syncIndicator"><div class="spinner"></div><span>Syncing…</span></div>
+
 <!-- AI Chat -->
 <div class="ai-fab" data-action="toggle-ai" title="Dhanvantri AI">🌿</div>
 <div class="ai-window" id="aiWindow">
