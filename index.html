@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dhanvantari — Clinical Suite</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="loginPage" class="auth-wrap">
+  <div class="auth-card">
+    <div class="auth-brand">
+      <div class="auth-logo">🌿</div>
+      <div class="auth-name">Dhanvantari</div>
+      <div class="auth-tag">Ayurvedic Clinical Suite</div>
+    </div>
+    <h2 class="auth-title">Welcome back</h2>
+    <p class="auth-sub">Sign in to access your clinical dashboard</p>
+    <div id="loginError" class="form-error"></div>
+    <button class="btn-google" data-action="google-signin">
+      <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+      <span>Continue with Google</span>
+    </button>
+    <div class="divider">or</div>
+    <form id="loginForm">
+      <div class="form-group"><label class="form-label">Email</label><input type="email" name="email" class="form-input" placeholder="you@hospital.org" required></div>
+      <div class="form-group"><label class="form-label">Password</label><input type="password" name="password" class="form-input" placeholder="••••••••" required></div>
+      <div class="form-row"><label><input type="checkbox" name="remember"> Remember me</label><a href="#" data-action="forgot">Forgot password?</a></div>
+      <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+    </form>
+    <p class="auth-foot">New to Dhanvantri? <a href="#" data-action="show-signup">Create an account</a></p>
+  </div>
+</div>
+
+<!-- SIGNUP -->
+<div id="signupPage" class="auth-wrap" style="display:none;">
+  <div class="auth-card">
+    <div class="auth-brand">
+      <div class="auth-logo">🌿</div>
+      <div class="auth-name">Dhanvantari</div>
+      <div class="auth-tag">Ayurvedic Clinical Suite</div>
+    </div>
+    <h2 class="auth-title">Begin your journey</h2>
+    <p class="auth-sub">Join the platform for holistic clinical care</p>
+    <div id="signupError" class="form-error"></div>
+    <button class="btn-google" data-action="google-signin">
+      <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+      <span>Sign up with Google</span>
+    </button>
+    <div class="divider">or</div>
+    <form id="signupForm">
+      <div class="form-group"><label class="form-label">Full Name</label><input type="text" name="name" class="form-input" placeholder="Dr. Sarah Kim" required></div>
+      <div class="form-group"><label class="form-label">Email</label><input type="email" name="email" class="form-input" placeholder="you@hospital.org" required></div>
+      <div class="form-group"><label class="form-label">Requested Role</label>
+        <select name="role" class="form-input" required>
+          <option value="Practitioner">Nurse / Practitioner</option>
+          <option value="HeadDoctor">Head Doctor (requires approval)</option>
+          <option value="Admin">Hospital Admin (requires approval)</option>
+        </select>
+      </div>
+      <div class="form-group"><label class="form-label">Hospital / Clinic Name</label><input type="text" name="hospital" class="form-input" placeholder="AIIMS Delhi" required></div>
+      <div class="form-group"><label class="form-label">Password</label><input type="password" name="password" class="form-input" placeholder="At least 6 characters" required minlength="6"></div>
+      <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+    </form>
+    <p class="auth-foot">Already registered? <a href="#" data-action="show-login">Sign in</a></p>
+  </div>
+</div>
+
+<!-- ============================== -->
+<!-- MAIN APP (Nurse / Doctor) -->
+<!-- ============================== -->
+<div id="appPage" style="display:none;">
+  <nav class="topnav">
+    <div class="topnav-brand" data-view="dashboard">
+      <div class="topnav-logo">🌿</div>
+      <div class="topnav-brand-text">
+        <div class="brand-name">Dhanvantri</div>
+        <div class="brand-tag" id="userRole">Practitioner</div>
+      </div>
+    </div>
+    <div class="topnav-links">
+      <div class="topnav-link active" data-view="dashboard">Dashboard</div>
+      <div class="topnav-link" data-view="patients">Patients <span class="badge" id="patientCount">0</span></div>
+      <div class="topnav-link" data-view="vitals">Vitals</div>
+      <div class="topnav-link" data-view="tasks">Tasks <span class="badge" id="taskCount">0</span></div>
+      <div class="topnav-link" data-view="medications">Meds <span class="badge" id="medCount">0</span></div>
+      <div class="topnav-link admin" data-view="admin" id="adminLink" style="display:none;">🏥 Admin</div>
+    </div>
+    <div class="topnav-spacer"></div>
+    <div class="topnav-search"><span class="topnav-search-icon">⌕</span><input type="text" placeholder="Search..." id="globalSearch"></div>
+    <div class="topnav-actions">
+      <button class="icon-btn" title="Notifications" data-action="notif">🔔<span class="dot"></span></button>
+      <button class="icon-btn" title="Toggle theme" data-action="toggle-theme">◐</button>
+      <div class="profile"><div class="avatar" id="userAvatar"></div><div><div class="profile-name" id="userName">User</div><div class="profile-role" id="userProfileRole">RN</div></div></div>
+      <button class="icon-btn" title="Sign out" data-action="logout">⏻</button>
+    </div>
+  </nav>
+
+  <main class="content">
+    <div id="view-dashboard">
+      <div class="page-head">
+        <div>
+          <h1 class="page-title">Namaste, <span class="highlight" id="dashName">Practitioner</span></h1>
+          <p class="page-sub" id="dashShift">Your clinical overview for today</p>
+        </div>
+        <div class="page-actions">
+          <button class="btn btn-ghost" data-action="export">⬇ Export</button>
+          <button class="btn btn-secondary" data-action="open-add-patient">+ Add Patient</button>
+        </div>
+      </div>
+      <div id="alertsCard" class="alerts-card" style="display:none;">
+        <div class="card-title">⚠ Needs Attention</div>
+        <div class="card-sub" id="alertsSub">Critical situations requiring review</div>
+        <div id="alertsList" class="alerts-list"></div>
+      </div>
+      <div class="bento">
+        <div class="bento-card hero col-4 row-2">
+          <div class="bento-head">
+            <div>
+              <div class="bento-label">Welcome back</div>
+              <div class="bento-title" id="bentoGreeting">Namaste, Practitioner</div>
+              <div class="bento-subtitle" id="bentoSubtitle">Ready to make a difference today</div>
+            </div>
+            <div class="bento-icon" style="width:50px; height:50px; font-size:22px;">🌿</div>
+          </div>
+          <div class="bento-spark">
+            <span style="height:35%; animation-delay:.05s"></span><span style="height:60%; animation-delay:.1s"></span><span style="height:45%; animation-delay:.15s"></span>
+            <span style="height:80%; animation-delay:.2s"></span><span style="height:65%; animation-delay:.25s"></span><span style="height:90%; animation-delay:.3s"></span>
+            <span style="height:70%; animation-delay:.35s"></span><span style="height:100%; animation-delay:.4s"></span><span style="height:85%; animation-delay:.45s"></span>
+            <span style="height:55%; animation-delay:.5s"></span><span style="height:75%; animation-delay:.55s"></span><span style="height:95%; animation-delay:.6s"></span>
+          </div>
+          <div class="bento-meta">✦ Tap the gold button to begin your roster</div>
+        </div>
+        <div class="bento-card col-2 row-1"><div class="bento-head"><div class="bento-label">Active Patients</div><div class="bento-icon">◎</div></div><div class="bento-title" id="mPatients">0</div><div class="bento-meta" id="mPatientsSub">Begin your roster</div></div>
+        <div class="bento-card accent col-2 row-1"><div class="bento-head"><div class="bento-label">Critical Cases</div><div class="bento-icon">⚑</div></div><div class="bento-title" id="mCritical">0</div><div class="bento-meta" id="mCriticalSub">None — all stable</div></div>
+        <div class="bento-card col-2 row-1"><div class="bento-head"><div class="bento-label">Pending Tasks</div><div class="bento-icon">✓</div></div><div class="bento-title" id="mTasks">0</div><div class="bento-meta" id="mTasksSub">No tasks yet</div></div>
+        <div class="bento-card accent col-2 row-1"><div class="bento-head"><div class="bento-label">Completed Today</div><div class="bento-icon">★</div></div><div class="bento-title" id="mDone">0</div><div class="bento-meta" id="mDoneSub">Begin your day</div></div>
+        <div class="bento-card col-3 row-2">
+          <div class="card-head" style="margin-bottom:14px;"><div><div class="bento-label" style="margin:0 0 4px 0;">Quick Tasks</div><div class="card-title" style="font-size:20px;">Today's Activities</div></div><button class="btn btn-ghost" style="padding:7px 14px; font-size:12px;" data-action="open-add-task">+ Add</button></div>
+          <div id="quickTasks"></div>
+        </div>
+        <div class="bento-card col-3 row-2">
+          <div class="card-head" style="margin-bottom:14px;"><div><div class="bento-label" style="margin:0 0 4px 0;">Recent Patients</div><div class="card-title" style="font-size:20px;">Active Roster</div></div><button class="btn btn-ghost" style="padding:7px 14px; font-size:12px;" data-action="goto-patients">View All →</button></div>
+          <div id="recentPatients"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="view-patients" style="display:none;">
+      <div class="page-head"><div><h1 class="page-title">Patient Roster</h1><p class="page-sub" id="patientCountLabel">0 patients</p></div><div class="page-actions"><button class="btn btn-secondary" data-action="open-add-patient">+ Add Patient</button></div></div>
+      <div class="card"><div id="fullPatientList"></div></div>
+    </div>
+
+    <div id="view-tasks" style="display:none;">
+      <div class="page-head"><div><h1 class="page-title">Tasks</h1><p class="page-sub" id="taskCountLabel">0 tasks</p></div><div class="page-actions"><button class="btn btn-secondary" data-action="open-add-task">+ Add Task</button></div></div>
+      <div class="card"><div id="tasksContainer"></div></div>
+    </div>
+
+    <div id="view-vitals" style="display:none;">
+      <div class="page-head"><div><h1 class="page-title">Vitals Monitor</h1><p class="page-sub">Latest reading per patient</p></div></div>
+      <div class="card"><div id="vitalsGlance"></div></div>
+    </div>
+
+    <div id="view-medications" style="display:none;">
+      <div class="page-head"><div><h1 class="page-title">Medications</h1><p class="page-sub" id="medCountLabel">0 medications</p></div><div class="page-actions"><button class="btn btn-secondary" data-action="open-add-med">+ Log Medication</button></div></div>
+      <div class="card"><div id="fullMedList"></div></div>
+    </div>
+
+    <!-- ============================== -->
+    <!-- ADMIN DASHBOARD -->
+    <!-- ============================== -->
+    <div id="view-admin" style="display:none;">
+      <div class="page-head">
+        <div>
+          <h1 class="page-title">🏥 <span class="highlight" id="adminHospitalName">Hospital</span> Admin</h1>
+          <p class="page-sub" id="adminSubtitle">Multi-hospital oversight · Approvals · Insights</p>
+        </div>
+        <div class="page-actions">
+          <button class="btn btn-ghost" data-action="admin-tab" data-tab="overview">📊 Overview</button>
+          <button class="btn btn-ghost" data-action="admin-tab" data-tab="staff">👥 Staff</button>
+          <button class="btn btn-ghost" data-action="admin-tab" data-tab="approvals">✉️ Approvals <span class="badge" id="approvalCount" style="background:var(--danger); color:white; margin-left:6px; padding:1px 7px; border-radius:10px; font-size:10px;">0</span></button>
+          <button class="btn btn-ghost" data-action="admin-tab" data-tab="insights">💡 Insights</button>
+        </div>
+      </div>
+
+      <!-- Admin: Overview -->
+      <div id="adminTab-overview" class="admin-tab-content">
+        <div class="bento">
+          <div class="bento-card hero col-4 row-2">
+            <div class="bento-head">
+              <div>
+                <div class="bento-label">Hospital Overview</div>
+                <div class="bento-title" style="font-size:28px;" id="adminHeroTitle">Welcome, Admin</div>
+                <div class="bento-subtitle" id="adminHeroSub">Real-time clinical operations</div>
+              </div>
+              <div class="bento-icon" style="width:50px; height:50px; font-size:22px;">🏥</div>
+            </div>
+            <div class="stats-mini" style="margin-top:20px;">
+              <div class="stat-mini"><div class="num" id="aStatStaff">0</div><div class="lbl">Staff</div></div>
+              <div class="stat-mini"><div class="num" id="aStatPatients">0</div><div class="lbl">Patients</div></div>
+              <div class="stat-mini"><div class="num" id="aStatCritical">0</div><div class="lbl">Critical</div></div>
+              <div class="stat-mini"><div class="num" id="aStatMeds">0</div><div class="lbl">Meds Today</div></div>
+            </div>
+            <div class="bento-meta">⚡ Live overview across your hospital</div>
+          </div>
+          <div class="bento-card col-2 row-1">
+            <div class="bento-head"><div class="bento-label">Active Practitioners</div><div class="bento-icon">👩‍⚕️</div></div>
+            <div class="bento-title" id="aActiveStaff">0</div>
+            <div class="bento-meta">Last 24 hours</div>
+          </div>
+          <div class="bento-card accent col-2 row-1">
+            <div class="bento-head"><div class="bento-label">Pending Approvals</div><div class="bento-icon">✉️</div></div>
+            <div class="bento-title" id="aPending">0</div>
+            <div class="bento-meta">Action required</div>
+          </div>
+          <div class="bento-card col-3 row-1">
+            <div class="bento-head"><div class="bento-label">Critical Patients (All Staff)</div><div class="bento-icon">⚑</div></div>
+            <div class="bento-title" id="aCritAll">0</div>
+            <div class="bento-meta">Across hospital</div>
+          </div>
+          <div class="bento-card col-3 row-1">
+            <div class="bento-head"><div class="bento-label">Overdue Medications</div><div class="bento-icon">⏰</div></div>
+            <div class="bento-title" id="aOverdueAll">0</div>
+            <div class="bento-meta">Need follow-up</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Admin: Staff -->
+      <div id="adminTab-staff" class="admin-tab-content" style="display:none;">
+        <div class="card">
+          <div class="card-head"><div class="card-title">Staff Directory</div><button class="btn btn-ghost btn-sm" data-action="export-staff">⬇ Export</button></div>
+          <div style="overflow-x:auto;">
+            <table class="admin-table" id="staffTable"><thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Hospital</th><th>Last Active</th><th>Patients</th><th>Actions</th></tr></thead><tbody></tbody></table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Admin: Approvals -->
+      <div id="adminTab-approvals" class="admin-tab-content" style="display:none;">
+        <div class="card">
+          <div class="card-head"><div class="card-title">Staff Join Requests</div><div class="card-sub" id="approvalsSub">Head doctor & admin requests for your hospital</div></div>
+          <div id="approvalsList"></div>
+        </div>
+      </div>
+
+      <!-- Admin: AI Insights -->
+      <div id="adminTab-insights" class="admin-tab-content" style="display:none;">
+        <div class="card">
+          <div class="card-head"><div class="card-title">🧠 AI-Generated Insights</div><button class="btn btn-ghost btn-sm" data-action="refresh-insights">↻ Refresh</button></div>
+          <div id="insightsList"><div class="empty-state"><div class="empty-icon">💡</div><div class="empty-title">Generating insights...</div><div class="empty-text">Analyzing hospital data</div></div></div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- MODALS -->
+<div class="modal-backdrop" id="modalAddPatient" data-modal="addPatient">
+  <div class="modal">
+    <div class="modal-head"><div class="modal-title">Add New Patient</div><button class="modal-close" data-action="close-modal" data-modal="addPatient">✕</button></div>
+    <form id="addPatientForm">
+      <div class="form-group"><label class="form-label">Patient Name</label><input type="text" name="name" class="form-input" placeholder="Aarav Sharma" required></div>
+      <div class="form-group"><label class="form-label">Bed Number</label><input type="text" name="bed" class="form-input" placeholder="301" required></div>
+      <div class="form-group"><label class="form-label">Status</label><select name="status" class="form-input" required><option value="stable">Stable</option><option value="monitor">Monitor</option><option value="critical">Critical</option></select></div>
+      <div class="form-group"><label class="form-label">Notes</label><input type="text" name="notes" class="form-input" placeholder="Prakriti assessment notes"></div>
+      <div class="modal-actions"><button type="button" class="btn btn-ghost" data-action="close-modal" data-modal="addPatient">Cancel</button><button type="submit" class="btn btn-primary">Add Patient</button></div>
+    </form>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="modalAddTask" data-modal="addTask">
+  <div class="modal">
+    <div class="modal-head"><div class="modal-title">Add New Task</div><button class="modal-close" data-action="close-modal" data-modal="addTask">✕</button></div>
+    <form id="addTaskForm">
+      <div class="form-group"><label class="form-label">Task Description</label><input type="text" name="text" class="form-input" placeholder="Administer morning medication" required></div>
+      <div class="form-group"><label class="form-label">Scheduled Time</label><input type="time" name="time" class="form-input" required></div>
+      <div class="form-group"><label class="form-label">Link to Patient</label><select name="patientId" class="form-input" id="taskPatientSelect"><option value="">— None —</option></select></div>
+      <div class="modal-actions"><button type="button" class="btn btn-ghost" data-action="close-modal" data-modal="addTask">Cancel</button><button type="submit" class="btn btn-primary">Add Task</button></div>
+    </form>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="modalAddMed" data-modal="addMed">
+  <div class="modal">
+    <div class="modal-head"><div class="modal-title">Log Medication</div><button class="modal-close" data-action="close-modal" data-modal="addMed">✕</button></div>
+    <form id="addMedForm">
+      <div class="form-group"><label class="form-label">Patient</label><select name="patientId" class="form-input" id="medPatientSelect" required><option value="">— Select patient —</option></select></div>
+      <div class="form-group"><label class="form-label">Medication Name</label><input type="text" name="name" class="form-input" placeholder="Ashwagandha Churna 5g" required></div>
+      <div class="form-group"><label class="form-label">Dose</label><input type="text" name="dose" class="form-input" placeholder="1 tsp with warm milk" required></div>
+      <div class="form-group"><label class="form-label">Due Time</label><input type="datetime-local" name="due" class="form-input" required></div>
+      <div class="modal-actions"><button type="button" class="btn btn-ghost" data-action="close-modal" data-modal="addMed">Cancel</button><button type="submit" class="btn btn-primary">Log Medication</button></div>
+    </form>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="modalLogVitals" data-modal="logVitals">
+  <div class="modal">
+    <div class="modal-head"><div class="modal-title">Log Vitals</div><button class="modal-close" data-action="close-modal" data-modal="logVitals">✕</button></div>
+    <form id="logVitalsForm" data-patient-id="">
+      <p class="card-sub" id="logVitalsPatientName" style="margin-bottom:20px; font-size:14px;">—</p>
+      <div class="vitals">
+        <div class="vital"><div class="vital-label">Heart Rate</div><input type="number" name="hr" class="vital-input" placeholder="—"><span class="vital-unit">bpm</span></div>
+        <div class="vital"><div class="vital-label">SpO₂</div><input type="number" name="spo2" class="vital-input" placeholder="—"><span class="vital-unit">%</span></div>
+        <div class="vital"><div class="vital-label">Blood Pressure</div><input type="text" name="bp" class="vital-input" placeholder="—/—"><span class="vital-unit">mmHg</span></div>
+        <div class="vital"><div class="vital-label">Temperature</div><input type="number" step="0.1" name="temp" class="vital-input" placeholder="—"><span class="vital-unit">°C</span></div>
+      </div>
+      <div class="modal-actions"><button type="button" class="btn btn-ghost" data-action="close-modal" data-modal="logVitals">Cancel</button><button type="submit" class="btn btn-primary">Save Reading</button></div>
+    </form>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="modalPatientDetail" data-modal="patientDetail">
+  <div class="modal modal-lg">
+    <div class="modal-head"><div><div class="modal-title" id="pdName">Patient Name</div><div class="card-sub" id="pdMeta">—</div></div><button class="modal-close" data-action="close-modal" data-modal="patientDetail">✕</button></div>
+    <div id="pdContent"></div>
+    <div class="modal-actions"><button class="btn btn-danger" data-action="delete-patient">Remove Patient</button><button class="btn btn-primary" data-action="log-vitals-from-detail">+ Log Vitals</button></div>
+  </div>
+</div>
+
+<!-- Staff detail modal (admin) -->
+<div class="modal-backdrop" id="modalStaffDetail" data-modal="staffDetail">
+  <div class="modal modal-lg">
+    <div class="modal-head"><div><div class="modal-title" id="sdName">Staff Member</div><div class="card-sub" id="sdMeta">—</div></div><button class="modal-close" data-action="close-modal" data-modal="staffDetail">✕</button></div>
+    <div id="sdContent"></div>
+    <div class="modal-actions">
+      <button class="btn btn-danger" data-action="revoke-staff">Revoke Access</button>
+      <button class="btn btn-primary" data-action="view-staff-patients">View Patients</button>
+    </div>
+  </div>
+</div>
+
+<!-- AI Settings Modal -->
+<div class="modal-backdrop" id="modalAiSettings" data-modal="aiSettings">
+  <div class="modal">
+    <div class="modal-head">
+      <div><div class="modal-title">🌿 Sage AI Settings</div><div class="card-sub">Power the assistant with OpenRouter</div></div>
+      <button class="modal-close" data-action="close-modal" data-modal="aiSettings">✕</button>
+    </div>
+    <div id="aiSettingsError" class="form-error"></div>
+    <form id="aiSettingsForm">
+      <div class="form-group">
+        <label class="form-label">OpenRouter API Key</label>
+        <input type="password" name="key" id="aiKeyInput" class="form-input" placeholder="sk-or-v1-..." autocomplete="off">
+        <div class="card-sub" style="margin-top:8px; font-size:12px;">Stored locally in your browser only. Get one at <a href="https://openrouter.ai/keys" target="_blank" rel="noopener">openrouter.ai/keys</a>.</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Model</label>
+        <select name="model" id="aiModelSelect" class="form-input">
+          <option value="meta-llama/llama-3.3-70b-instruct:free">Llama 3.3 70B (free, recommended)</option>
+          <option value="google/gemini-2.0-flash-exp:free">Gemini 2.0 Flash (free, fast)</option>
+          <option value="qwen/qwen-2.5-72b-instruct:free">Qwen 2.5 72B (free)</option>
+          <option value="mistralai/mistral-small-3.2-24b-instruct:free">Mistral Small 3.2 (free)</option>
+          <option value="openai/gpt-4o-mini">GPT-4o Mini (paid, cheap)</option>
+          <option value="anthropic/claude-3.5-sonnet">Claude 3.5 Sonnet (paid, best quality)</option>
+        </select>
+      </div>
+      <div style="display:flex; gap:10px; margin-top:8px;">
+        <button type="button" class="btn btn-ghost btn-sm" data-action="test-ai-key">🧪 Test Key</button>
+        <button type="button" class="btn btn-danger btn-sm" data-action="clear-ai-key">Remove Key</button>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-ghost" data-action="close-modal" data-modal="aiSettings">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save & Activate</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="toast" id="toast"><span class="toast-icon">✓</span><span id="toastMsg">Action completed</span></div>
+<div class="syncing-indicator" id="syncIndicator"><div class="spinner"></div><span>Syncing…</span></div>
+
+<!-- AI Chat -->
+<div class="ai-fab" data-action="toggle-ai" title="Dhanvantri AI">🌿</div>
+<div class="ai-window" id="aiWindow">
+  <div class="ai-header">
+    <div class="ai-header-title">
+      <span>Dhanvantri AI · Sage</span>
+      <span id="aiStatusDot" title="Offline"></span>
+    </div>
+    <div style="display:flex; gap:6px;">
+      <button class="ai-header-close" data-action="open-ai-settings" title="Settings">⚙</button>
+      <button class="ai-header-close" data-action="close-ai">✕</button>
+    </div>
+  </div>
+  <div class="ai-suggestions" id="aiSuggestions">
+    <div class="ai-suggestion" data-action="ai-suggest" data-q="Summarize my current patients">📋 Summarize patients</div>
+    <div class="ai-suggestion" data-action="ai-suggest" data-q="What vitals need attention right now?">🚨 Critical vitals?</div>
+    <div class="ai-suggestion" data-action="ai-suggest" data-q="Suggest an Ayurvedic evening routine for a stressed nurse">🌿 Ayurveda tip</div>
+    <div class="ai-suggestion" data-action="ai-suggest" data-q="Explain normal SpO2 and BP ranges">📊 Normal vitals</div>
+    <div class="ai-suggestion" data-action="clear-ai-chat" style="margin-left:auto; color:var(--danger);">🗑 Clear</div>
+  </div>
+  <div class="ai-messages" id="aiMessages">
+    <div class="ai-msg bot">
+      <strong>Namaste 🙏</strong> I'm <em>Sage</em>, your Dhanvantri AI assistant.<br>I can help you interpret vitals, suggest care plans, summarize patient data, and answer Ayurvedic medicine questions. How may I help you today?
+    </div>
+  </div>
+  <div class="ai-input-area">
+    <input type="text" class="ai-input" id="aiInput" placeholder="Ask Sage anything...">
+    <button class="ai-send" data-action="ai-send">→</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
