@@ -75,7 +75,7 @@ const OpenRouter = (() => {
   const API_URL    = 'https://openrouter.ai/api/v1/chat/completions';
   
   // 🔑 YOUR DEFAULT OPENROUTER API KEY (paste here)
-  const DEFAULT_API_KEY = 'ssk-or-v1-461c25fce43a31ef437263b26a4fbfa2d9352a319e756a41c59c09d8d04057f0';
+  const DEFAULT_API_KEY = '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';
   // 🎯 YOUR DEFAULT MODEL (pick one)
   const DEFAULT_MODEL = 'meta-llama/llama-3.3-70b-instruct:free';
 
